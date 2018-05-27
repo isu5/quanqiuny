@@ -1,9 +1,11 @@
 全球能源互联网 tp5
-## 5.27
+## 5.27 创建后台
 1. 创建后台入口文件admin.php，在public下
  
-	命令行： php think build --module admin
-	
+	命令行：
+```
+php think build --module admin 
+```
 	在app 自动生成 admin 目录
 2. 访问域名/admin.php 是否可以访问？
 	

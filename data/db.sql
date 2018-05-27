@@ -14,7 +14,6 @@ create table qq_categroy(
 id int(11) unsigned primary key auto_increment,
 pid int(11) unsigned not null default 0 comment '父级id',
 catename varchar(50) not null default '' comment '栏目名称',
-addtime int(11) not null default 0 comment '添加时间'
 )engine=Innodb charset utf8;
 
 ----内容表

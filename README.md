@@ -2,7 +2,7 @@
 #### 5.27 创建后台
 1. 创建后台入口文件admin.php，在public下
  
-	命令行：
+	1.1 命令行：
 ```
 php think build --module admin 
 ```

@@ -1,10 +1,14 @@
 <?php
+/**
+*  后台首页
+*/
 namespace app\admin\controller;
+use think\Controller;
 
-class Index
+class Index extends Common
 {
     public function index()
     {
-        return '后台';
+        return $this->fetch();
     }
 }

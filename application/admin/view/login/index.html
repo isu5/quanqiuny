@@ -35,18 +35,20 @@
             <label class="layui-form-label">验证码：</label>
 
             <div class="layui-input-inline">
-                <input type="number" name="code" class="layui-input" lay-verify="code" placeholder="验证码" maxlength="4"/><img src="../image/v.png" alt="">
+
+                <input type="number" name="code" class="layui-input" lay-verify="code" placeholder="验证码" maxlength="4"/><img src="{:captcha_src()}" onclick="javascript:this.src='{:captcha_src()}?rd='+Math.random();void(0);" alt="">
             </div>
         </div>
         <div class="layui-form-item">
             <button type="reset" class="layui-btn layui-btn-danger btn-reset">重置</button>
-            <input type="submit" value="立即登录" lay-submit="" lay-filter="formSubmit" class="layui-btn btn-submit" >
-           <!--  <button type="button" class="layui-btn btn-submit" lay-submit="" lay-filter="sub">立即登录</button> -->
+           <!--  <input type="submit" value="立即登录" lay-submit="" lay-filter="formSubmit" class="layui-btn btn-submit" > -->
+            <button type="button" class="layui-btn btn-submit" lay-submit="" lay-filter="sub">立即登录</button> 
         </div>
     </form>
 </div>
 
 <script type="text/javascript" src="__STATIC__/admin/frame/layui/layui.js"></script>
+<script type="text/javascript" src="__STATIC__/admin/frame/layer/2.1/layer.js"></script>
 <script type="text/javascript">
     layui.use(['form', 'layer'], function () {
         var $ = layui.jquery,form = layui.form(),layer = layui.layer;
@@ -70,8 +72,27 @@
         });
         // 提交监听
         form.on('submit(sub)', function (data) {
-            layer.alert(JSON.stringify(data.field.username));
-            return false;
+            layer.load(1);
+                $.ajax({
+                    type: "POST",
+                    url: "{:url('login/index')}",
+                    data: data.field,
+                    dataType: "json",
+                    success: function (data) {
+                        if(data.status == 200){ 
+                            layer.msg(data.msg, {icon: 1, time: 2000,shade: 0.5 },function(){
+                                window.location.href= "{:url('Index/index')}";
+                             });
+                        }else{
+                            layer.msg(data.msg, {icon: 2, time: 2000,shade: 0.5 },function(){
+                                location.reload();
+                            });
+                        } 
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        alert(XMLHttpRequest['responseText']);
+                    }
+                });
 
         })
     })

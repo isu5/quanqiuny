@@ -1,23 +1,25 @@
-﻿{extend name="public:base" /}
+{extend name="public:base" /}
 {block name="main"}
 <form action="{:url()}" method="post">
 <table class="table table-bordered table-hover definewidth m10">
+    <input type="hidden" name='id' value="{:input('param.id')}">
     <tr>
         <td width="10%" class="tableleft">栏目名称</td>
-        <td><input type="text" name="catename"/></td>
+        <td><input type="text" name="catename" value="{$data.catename}" /></td>
     </tr>
     <tr>
         <td class="tableleft">所属栏目</td>
         <td>
             <select name="pid" id="">
-                <option value="0">顶级栏目</option>
+            <option value="0">顶级栏目</option>
+
             </select>
         </td>
     </tr>   
     <tr>
         <td class="tableleft">排序</td>
         <td>
-           <input type="text" name="sort"/>
+           <input type="text" name="sort"  value="{$data.sort}"/>
         </td>
     </tr>
     <tr>

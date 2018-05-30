@@ -13,7 +13,7 @@
   <div class="header">
     
       <div class="dl-title">
-       <!--<img src="/chinapost/Public/assets/img/top.png">-->
+          <img src="__STATIC__/admin/assets/img/top.png" style="height: 40px">
       </div>
 
     <div class="dl-log">欢迎您，<span class="dl-log-user">{:session('username')}</span><a href="{:url('login/logout')}" title="退出系统" class="dl-log-quit">[退出]</a>
@@ -22,9 +22,9 @@
    <div class="content">
     <div class="dl-main-nav">
       <div class="dl-inform"><div class="dl-inform-title"><s class="dl-inform-icon dl-up"></s></div></div>
-      <ul id="J_Nav"  class="nav-list ks-clear">
-    		<li class="nav-item dl-selected"><div class="nav-item-inner nav-home">内容管理</div></li>		
-			<li class="nav-item dl-selected"><div class="nav-item-inner nav-order">业务管理</div></li>       
+      <ul id="J_Nav"  class="nav-list ks-clear">  
+    		<li class="nav-item dl-selected"><div class="nav-item-inner nav-home">系统管理</div></li>		
+			   <li class="nav-item dl-selected"><div class="nav-item-inner nav-order">内容管理</div></li>       
 
       </ul>
     </div>
@@ -39,18 +39,23 @@
   <script>
     BUI.use('common/main',function(){
       var config = [{
-		id:'1',
-		menu:[{
-		text:'栏目管理',
-		items:[{id:'2',text:'栏目列表',href:"{:url('Category/index')}"},
-		]}]
-		},
-	  
-	  {id:'7',
-	  homePage : '9',
-	  menu:[{
-	  text:'业务管理',
-	  items:[{id:'9',text:'查询业务',href:'Node/index.html'}]}]}];
+      		id:'1',
+      		menu:[{
+      		text:'管理员管理',
+      		items:[{id:'2',text:'修改信息',href:"{:url('Admin/index')}"},
+      		]}],
+      		},
+         
+      	  {id:'5',
+      	  homePage : '6',
+      	  menu:[{
+      	  text:'内容管理',
+          items:[
+          {id:'6',text:'栏目列表',href:"{:url('Category/index')}"},
+          {id:'7',text:'内容列表',href:"{:url('News/index')}"},
+          ]
+        }]}];
+          
       new PageUtil.MainPage({
         modulesConfig : config
       });

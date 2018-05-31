@@ -62,7 +62,12 @@ class Category extends Common{
 
     //删除
     public function delete(){
-        
+         $id = input('param.id');
+         if(CategoryModel::destroy($id)){
+            return json(['valid'=>1,'msg'=>'删除成功']);
+         }else{
+            return json(['valid'=>0,'msg'=>'删除失败']);
+         }
     }
 
 }

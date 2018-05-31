@@ -3,21 +3,32 @@
 <form action="{:url()}" method="post">
 <table class="table table-bordered table-hover definewidth m10">
     <tr>
-        <td width="10%" class="tableleft">栏目名称</td>
-        <td><input type="text" name="catename" data-rules="{required:true}"/></td>
+        <td width="10%" class="tableleft">主标题</td>
+        <td><input type="text" class="form-control" name="bigtitle"/></td>
+
     </tr>
+    <tr>
+        <td width="10%" class="tableleft">标题</td>
+        <td><input type="text" name="title"/></td>
+    </tr
     <tr>
         <td class="tableleft">所属栏目</td>
         <td>
-            <select name="pid" id="">
+            <select name="cid" id="">
                 <option value="0">顶级栏目</option>
             </select>
         </td>
     </tr>   
     <tr>
-        <td class="tableleft">排序</td>
+        <td class="tableleft">作者</td>
         <td>
-           <input type="text" name="sort"/>
+           <input type="text" name="author"/>
+        </td>
+    </tr>
+    <tr>
+        <td class="tableleft">文章内容</td>
+        <td>
+           <textarea name="content" id="" cols="30" rows="10"></textarea>
         </td>
     </tr>
     <tr>

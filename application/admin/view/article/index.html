@@ -1,0 +1,45 @@
+{extend name="public:base"}
+{block name="main"}
+<form class="form-inline definewidth m20" action="index.html" method="get">    
+    文章标题：
+    <input type="text" name="title" id="title" class="abc input-default" placeholder="" value="">&nbsp;&nbsp;  
+    <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp;
+    <button type="button" class="btn btn-success" id="addnew">新增文章</button>
+</form>
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+    <tr>
+        <th width="5%">id</th>
+        <th>主标题</th>
+        <th>标题</th>
+        <th>所属栏目</th>
+        <th>作者</th>
+        <th>添加时间</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+	     <tr>
+            <td>2</td>
+            <td>主标题</td>
+            <td>标题</td>
+            <td>所属栏目</td>
+            <td>作者</td>
+            <td>添加时间</td>
+            <td>
+                <a href="edit.html">编辑</a>                
+            </td>
+        </tr>	
+</table>
+{/block}
+{block name="js"}
+<script>
+    $(function () {
+		$('#addnew').click(function(){
+				window.location.href="{:url('Article/add')}";
+		});
+
+    });
+
+	
+</script>
+{/block}

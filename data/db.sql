@@ -16,8 +16,8 @@ pid int(11) unsigned not null default 0 comment '父级id',
 catename varchar(50) not null default '' comment '栏目名称'
 )engine=Innodb charset utf8 comment '栏目表';
 
-----内容表
-create table qq_news(
+----文章表
+create table qq_article(
 id int(11) unsigned primary key auto_increment,
 cid int(11) unsigned not null comment '栏目id',
 bigtitle varchar(255) not null default '' comment '主标题',

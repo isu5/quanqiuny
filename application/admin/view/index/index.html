@@ -39,20 +39,20 @@
   <script>
     BUI.use('common/main',function(){
       var config = [{
-      		id:'1',
+      		id:'config',
       		menu:[{
       		text:'管理员管理',
-      		items:[{id:'2',text:'修改信息',href:"{:url('Admin/index')}"},
+      		items:[{id:'admin',text:'修改信息',href:"{:url('Admin/index')}"},
       		]}],
       		},
          
-      	  {id:'5',
-      	  homePage : '6',
+      	  {id:'content',
+      	  homePage : 'category',
       	  menu:[{
       	  text:'内容管理',
           items:[
-          {id:'6',text:'栏目列表',href:"{:url('Category/index')}"},
-          {id:'7',text:'内容列表',href:"{:url('News/index')}"},
+          {id:'category',text:'栏目列表',href:"{:url('Category/index')}"},
+          {id:'article',text:'内容列表',href:"{:url('Article/index')}"},
           ]
         }]}];
           

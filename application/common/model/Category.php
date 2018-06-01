@@ -26,9 +26,9 @@ class Category extends Model
 
     //修改
     public function edit($data){
-
+        //执行修改
     	$res = $this->validate(true)->save($data,[$this->pk=>$data['id']]);
-    	//执行添加
+    	
     	if ($res) {
     		return ['valid'=>1,'msg'=>'修改成功'];
     	}else{

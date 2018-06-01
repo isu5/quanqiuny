@@ -366,10 +366,22 @@ table.dataTable thead .sorting,table.dataTable thead .sorting_desc,table.dataTab
 }
 
 
-/*  添加的样式  */
-.layui-input-inline .Validform_wrong{
+/*  添加的样式 表单提交的错误验证 */
+.Validform_wrong,.Validform_right{
+    display: inline-block;
+    height: 20px;
+    font-size: 12px;
+    vertical-align: middle;
+    padding-left: 25px;
+}
+.Validform_wrong{
     color:#f00;
+    background: url(../image/validform/iconpic-error.png) no-repeat 0 center;
+    
 }
-.layui-input-inline .Validform_right{
-    color:green;
+.Validform_right{
+    color:#008000;
+     background: url(../image/validform/iconpic-right.png) no-repeat 0 center;
+    
 }
+

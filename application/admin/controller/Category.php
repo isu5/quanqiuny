@@ -16,9 +16,8 @@ class Category extends Common{
 	//列表
     public function index() {
 
-
-        $data = db('category')->order('sort desc')->select();
-        
+        $data = $this->db->getTree();
+        //halt($data);
         $this->assign('data',$data);
         return $this->fetch();
     }
@@ -34,7 +33,9 @@ class Category extends Common{
                 $this->error($res['msg']);
             }
     	}
-
+        $data = $this->db->getTree();
+        //halt($data);
+        $this->assign('data',$data);
     	return $this->fetch();
     }
 
@@ -54,8 +55,11 @@ class Category extends Common{
 
 
         $data = $this->db->where('id',$id)->find();
-
-        $this->assign('data',$data);
+        $cate = $this->db->getTree();
+        $this->assign([
+            'data'=>$data,
+            'cate'=>$cate
+        ]);
 
         return  view();
     }

@@ -1,10 +1,10 @@
 ﻿{extend name="public:base" /}
 {block name="main"}
-<link rel="stylesheet" href="__STATIC__/admin/css/style.css">
 <!--处理select下拉，搜索功能-->
-<link rel="stylesheet" type="text/css" href="__STATIC__/admin/frame/select2/select2.css" />
-<script type="text/javascript" src="__STATIC__/admin/frame/select2/select2.js"></script>
-<script type="text/javascript" src="__STATIC__/admin/frame/select2/select2_locale_zh-CN.js"></script>
+<link rel="stylesheet" href="__ADMIN__/css/style.css">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/frame/select2/select2.css" />
+<script type="text/javascript" src="__ADMIN__/frame/select2/select2.js"></script>
+<script type="text/javascript" src="__ADMIN__/frame/select2/select2_locale_zh-CN.js"></script>
 <!--处理select下拉，搜索功能 结束-->
 <form action="{:url()}" method="post" id="artForm">
 <table class="table table-bordered table-hover definewidth m10">
@@ -27,7 +27,7 @@
             <select name="cid" id="cateid" class="control-text span-width span3" datatype="*" nullmsg="请选择栏目" errormsg="请选择栏目">
                 <option value="">请选择栏目</option>
                 {volist name="cate" id="ca"}
-                    <option value="{$ca.id}">{$ca.catename}</option>
+                    <option value="{$ca.id}">{$ca['_name']}</option>
                 {/volist}
             </select>
         </td>
@@ -60,9 +60,9 @@
 
 {/block}
 {block name="js"}
-<script type="text/javascript" src="__STATIC__/admin/js/Validform.js"></script>
+<script type="text/javascript" src="__ADMIN__/js/Validform.js"></script>
 <!--======引入编辑器========================-->
-<script type="text/javascript" src="__STATIC__/admin/js/wangEditor.min.js"></script>
+<script type="text/javascript" src="__ADMIN__/js/wangEditor.min.js"></script>
 <script type="text/javascript">
     var E = window.wangEditor
     var editor = new E('#editor')

@@ -4,7 +4,7 @@ namespace app\common\model;
 
 use think\Model;
 
-class Category extends Model
+class Category extends Base
 {
     //
     protected $pk = 'id';
@@ -36,4 +36,6 @@ class Category extends Model
     		
     	}
     }
+
+    
 }

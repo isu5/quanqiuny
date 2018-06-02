@@ -4,7 +4,7 @@ namespace app\common\model;
 
 use think\Model;
 
-class Article extends Model
+class Article extends Base
 {
 	protected $pk = 'id';
 	protected $auto = ['addtime','uptime'];

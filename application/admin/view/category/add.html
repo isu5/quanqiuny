@@ -1,23 +1,32 @@
 ﻿{extend name="public:base" /}
 {block name="main"}
+<!--处理select下拉，搜索功能-->
+<link rel="stylesheet" href="__ADMIN__/css/style.css">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/frame/select2/select2.css" />
+<script type="text/javascript" src="__ADMIN__/frame/select2/select2.js"></script>
+<script type="text/javascript" src="__ADMIN__/frame/select2/select2_locale_zh-CN.js"></script>
+<!--处理select下拉，搜索功能 结束-->
 <form action="{:url()}" method="post">
 <table class="table table-bordered table-hover definewidth m10">
     <tr>
         <td width="10%" class="tableleft">栏目名称</td>
-        <td><input type="text" name="catename" data-rules="{required:true}"/></td>
+        <td><input type="text" name="catename" data-rules="{required:true}" class="control-text span-width span3"/></td>
     </tr>
     <tr>
         <td class="tableleft">所属栏目</td>
         <td>
-            <select name="pid" id="">
+            <select name="pid" id="cateid" class="control-text span-width span3">
                 <option value="0">顶级栏目</option>
+                {volist name="data" id="v"}
+                <option value="{$v['id']}">{$v['_name']}</option>
+                {/volist}
             </select>
         </td>
     </tr>   
     <tr>
         <td class="tableleft">排序</td>
         <td>
-           <input type="text" name="sort"/>
+           <input type="text" name="sort" class="control-text span-width span3"/>
         </td>
     </tr>
     <tr>
@@ -35,6 +44,13 @@
         $('#backid').click(function(){
                 window.location.href="index.html";
          });
+
+        //select下拉菜单效果调用
+        $('#cateid').select2({
+            placeholder: '请选择栏目',
+            //maximumSelectionSize: 3,   //最多添加3个
+            maximumSelectionLength :10,   //限制搜索的个数
+        });
 
     });
 </script>

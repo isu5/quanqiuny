@@ -136,6 +136,7 @@ return [
         'taglib_begin' => '{',
         // 标签库标签结束标记
         'taglib_end'   => '}',
+
         
     ],
 
@@ -237,4 +238,12 @@ return [
         'var_page'  => 'page',
         'list_rows' => 15,
     ],
+
+    //模版样式路径设置
+    'view_replace_str'  =>  [  
+        '__PUBLIC__'=>'/public/',  
+        '__ROOT__' => '/', 
+        '__HOME__' => '/static/home', 
+        '__ADMIN__' => '/static/admin',//定义后台模板样式标签(前面不能加/public/) 错误写法：'__ADMIN__' => '/public/static/admin',//定义后台模板样式标签  
+    ]
 ];

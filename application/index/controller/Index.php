@@ -1,10 +1,16 @@
 <?php
 namespace app\index\controller;
 
-class Index
+use think\Controller;
+
+class Index extends Controller
 {
     public function index()
     {
-        return 'tp5';
+
+    	$data = db('category')->order('sort desc, id desc')->select();
+    	
+    	getTree();
+        return view();
     }
 }

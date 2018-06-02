@@ -40,8 +40,8 @@ class Article extends Common
             }
     	}
         //获取分类
-        $cateDate = $this->cate->order('sort desc,id desc')->select();
-        //halt($cateDate);
+        $cateDate = $this->cate->getTree();
+       // halt($cateDate);
     	$this->assign('cate',$cateDate);
         return $this->fetch();
     }
@@ -64,7 +64,7 @@ class Article extends Common
         //获取文章数据
         $data = $this->art->where('id',$id)->find();
         //获取分类
-        $cateDate = $this->cate->order('sort desc,id desc')->select();
+        $cateDate = $this->cate->getTree();
         $this->assign([
             'data' => $data,
             'cate' => $cateDate

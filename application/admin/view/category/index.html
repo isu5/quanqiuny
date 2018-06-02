@@ -15,9 +15,10 @@
     </tr>
     </thead>
     {volist name="data" id="v"}
-	     <tr>
+	     
+         <tr>
             <td>{$v.id}</td>
-            <td>{$v.catename}</td>
+            <td>{$v['_name']}</td>
             <td>
                 <a href="{:url('Category/edit',['id'=>$v['id']])}">编辑</a>                
                 <a href="Javascript:void(0);" onclick="cate_del(this,{$v['id']})">删除</a>                

@@ -1,0 +1,28 @@
+
+html, body {
+    background: url(../images/bg_img.png) no-repeat fixed center center /cover;
+}
+.list {
+    padding: 1rem 1rem 4rem 0;
+}
+.list li {
+    float: left;
+    padding: 1rem 0 0rem 1rem;
+    width: 50%;
+}
+.list li a {
+    background: rgba(255, 255, 255, 0.2) none repeat scroll 0 0;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    color: #fff;
+    display: block;
+    font-size: 1.6rem;
+    padding: 1.2rem 2.5rem;
+    text-align: center;
+}
+.list li a em {
+    color: #d5d5d5;
+    float: right;
+    font-size: 1.4rem;
+}
+

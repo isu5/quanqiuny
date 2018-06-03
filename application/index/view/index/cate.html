@@ -13,7 +13,7 @@
 <body>
 <ul class="list l-year clear">
 	{volist name="data" id="v"}
-	<li><a href="{:url('cate',['pid'=>$v['id']])}">{$v.catename}</a></li>
+	<li><a href="{:url('Article/list',['pid'=>$v['id']])}">{$v.catename}</a></li>
 	{/volist}
 </ul>
 </body>

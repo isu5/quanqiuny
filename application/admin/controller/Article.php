@@ -31,7 +31,7 @@ class Article extends Common
     public function add(){
 
     	if(request()->isPost()){
-    		//halt(input('post.'));
+    		halt(input('post.'));
             $res = $this->art->store(input('post.'));
             if ($res['valid']) {
                 $this->success($res['msg'],'index');

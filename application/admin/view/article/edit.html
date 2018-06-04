@@ -6,6 +6,11 @@
 <script type="text/javascript" src="__ADMIN__/frame/select2/select2.js"></script>
 <script type="text/javascript" src="__ADMIN__/frame/select2/select2_locale_zh-CN.js"></script>
 <!--处理select下拉，搜索功能 结束-->
+<style>
+    textarea{
+        margin: 0px 0px 10px; width: 555px; height: 80px;
+    }
+</style>
 <form action="{:url()}" method="post" id="artForm">
 <table class="table table-bordered table-hover definewidth m10">
     <input type="hidden" name="id" value="{$data.id}">
@@ -39,6 +44,33 @@
            <input type="text" name="author" value="{$data.author}" class="control-text span-width span3" datatype="*" nullmsg="请输入作者名字" errormsg="请输入作者名字"/>
         </td>
     </tr>
+    <tr>
+        <td class="tableleft"><font style="color:red">*</font>职位信息</td>
+        <td>
+           <input type="text" name="position" class="control-text span-width span6" datatype="*" nullmsg="请输入职位信息" errormsg="请输入职位信息"/>
+        </td>
+    </tr>
+    <tr>
+        <td class="tableleft">其他信息</td>
+        <td>
+           <!-- <input type="text" name="otherinfo" class="control-text span-width span3" datatype="*" nullmsg="请输入其他信息" errormsg="请输入其他信息"/> -->
+           <textarea name="otherinfo">文本框</textarea>
+        </td>
+    </tr>
+    <tr>
+        <td class="tableleft">关键词</td>
+        <td>
+          
+           <textarea name="keywords"></textarea>
+        </td>
+    </tr>
+    <tr>
+        <td class="tableleft">摘要描述</td>
+        <td>
+           
+            <textarea name="description"></textarea>
+        </td>
+    </tr>
   
     
     <tr>
@@ -48,7 +80,7 @@
             <!-- <p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p> -->
             {$data.content}
         </div>
-           <textarea id="text1" name="content" style="display: none"  datatype="*" nullmsg="请输入文章内容" errormsg="请输入文章内容"></textarea>
+           <textarea id="text1" name="content" style="display: none"  datatype="*" nullmsg="请输入文章内容" errormsg="请输入文章内容">{$data.content}</textarea>
         </td>
     </tr>
     <tr>

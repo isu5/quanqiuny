@@ -18,7 +18,7 @@ class Article extends Controller{
     public function list(){
     	$id = input('param.pid');
     	//dump($pid);
-       $data =  $this->art->field('id,bigtitle,author')->where('cid',$id)->select();
+       $data =  $this->art->field('id,bigtitle,author')->where('cid',$id)->order('id desc')->select();
        //需要分页
        //dump($data);
     	$this->assign('data',$data);
@@ -28,11 +28,11 @@ class Article extends Controller{
 
     //内容页
     public function item(){
-    	$id = input('param.pid');
-    	//dump($pid);
-       $data =  $this->art->where('cid',$id)->select();
+    	$id = input('param.id');
+    	//dump($id);
+       $data =  $this->art->where('id',$id)->find();
 
-       //dump($data);
+       //halt($data);
     	$this->assign('data',$data);
         return view();
     }

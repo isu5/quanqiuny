@@ -31,7 +31,7 @@ class Article extends Common
     public function add(){
 
     	if(request()->isPost()){
-    		halt(input('post.'));
+    		//halt(input('post.'));
             $res = $this->art->store(input('post.'));
             if ($res['valid']) {
                 $this->success($res['msg'],'index');
@@ -52,6 +52,7 @@ class Article extends Common
         $id = input('param.id');
 
         if (request()->isPost()) {
+           // halt(input('post.'));
            $res = $this->art->edit(input('post.'));
 
             if ($res['valid']) {
@@ -63,6 +64,7 @@ class Article extends Common
 
         //获取文章数据
         $data = $this->art->where('id',$id)->find();
+       
         //获取分类
         $cateDate = $this->cate->getTree();
         $this->assign([

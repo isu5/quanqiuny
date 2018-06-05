@@ -32,113 +32,39 @@
 	<div class="wrap">
 		<div class="subject">
 			<h2>
-				<p>
-				{$data.bigtitle} <br/>
-				{$data.title}
-				</p>
-																																									<p>DC-link Stabilization Method for Metro Traction Converter-motor System Based on Feedforward Voltage Compensation</p>
+				<p>{$data.bigtitle}</p>
+				<p>{$data.title}</p>
 			</h2>
 			<div class="author">
 			<b>
-					{$data.author}																																																																																																																张颖, 王惠民, 葛兴来
+			{$data.author}					
         	</b>
-		 <p>磁浮技术与磁浮列车教育部重点实验室(西南交通大学),四川省 成都市 610031</p>
+		 <p>{$data.position}</p>
 		 		 
 		
 		<div class="author">
-											<b>
-								
-									
-																																											
-																																											
-																																											
-														
-														
-													ZHANG Ying, WANG Huimin, GE Xinglai
-				</b>
-				<p>Key Laboratory of Magnetic Suspension Technology and Maglev Vehicle (Southwest Jiaotong University), Chengdu 610031, Sichuan Province, China</p>
-									<p> </p>
+		
 			<div class="author_body">
-				<ul class="author_info">
-					
-					        
-																					
-								
-																	<li class="clear">
-									<div class="photo">
-									<p><img src='images/img_13.png' "/></p>
-									</div>
-																																							
-								
-																																							
-								
-																									<div class="text">
-									<p>张颖(1991),男,硕士研究生,主要研究方向为电力电子与电力传动;</p>
-									</div>
-									</li>
-																															
-								
-																																	<li>
-										<p>王惠民(1994),男,博士研究生,主要研究方向为电力电子与电力传动;</p>
-									</li>
-																							
-								
-																																	<li>
-										<p>葛兴来(1979),男,教授,博士生导师,研究方向为电力牵引交流传动系统故障建模、诊断及稳定性分析,本文的通讯作者,xlgee@163.com。</p>
-									</li>
-																						
-												
-					
-				</ul>
-								<p><b>基金项目：</b> 							
-								国家自然科学基金项目(51677156,61733015);
-							
-													
-								“十三五”重点研发计划课题(2016YFB1200502);
-							
-													
-								Project Supported by National Natural Science Foundation of China (51677156, 61733015);
-							
-													
-								The National Key Research and Development Plan of China (2016YFB1200502);
-							
-										</p>
-								<p>								</p>
-				<p>
-											<b>文章编号:</b> 0258-8013(2018)09-2728-08 
-																<b>中图分类号:</b> TM46 
-										
-				</p>
+				{$data.otherinfo}
 
 			</div>
-			<h3 class="outline_anchor">摘要</h3>
+			<h4 >摘要</h3>
 			<div class="details">
-				<p style="text-indent: 3rem;"><abstract lang="CN">
-        <p>恒功率控制在负载侧引入的负阻抗、主电路滤波参数选值受限及供电网谐波等因素易引发地铁牵引传动系统直流网侧电压、电流的持续振荡,影响供电系统与牵引传动系统的稳定运行。该文提出一种基于前馈电压补偿的振荡抑制方法,通过对前馈电压的动态调节,确保了直流网侧电压的稳定。同时考虑到电压补偿引起的过调制情况,采用一种功率平衡的控制方法,确保了在过调制情况下振荡抑制方法的有效性。该方法不受电流控制环带宽的限制,改善了负载侧输入阻抗特性,提升了系统稳定性。仿真和实验结果证明了控制方法的可行性和正确性。</p>
-      </abstract></p>
-				<p class="keyWord"><b>关键词 :</b>
-																																																													<em>地铁牵引传动系统</em>;
-																				<em>负阻抗</em>;
-																				<em>稳定性控制</em>;
-																				<em>电压补偿</em>;
-																				<em>过调制</em>;
-													</p>
-				<p><b>DOI：</b>10.13334/j.0258-8013.pcsee.171145</p>
+				<p style="text-indent: 3rem;">
+				<abstract lang="CN">
+	        	<p>
+	        		{$data.description}
+	        	</p>
+		      </abstract>
+		      </p>
+			<p class="keyWord">
+				<b>关键词 :</b>
+				<em>{$data.keywords}</em>
+				
+			</p>
+			
 			</div>
-			<h3>ABSTRACT</h3>
-			<div class="details">
-				<p style="text-indent: 3rem;">									<abstract>
-        <p>The negative impedance caused by constant power load, limited selection of filter parameters and the harmonics of the power supply network can always caused the DC voltage and current oscillation on the DC-link of the traction converter which will affect the stability of power supply and traction drive system. This paper presented a voltage based active damping technique. By extracting the DC voltage resonance component, the damping voltage vector was introduced on the basis of the feedforward modulation voltage and the method was analyzed in detail. Besides the overmodulation caused by the compensation was also considered, and the influence of the suppression scheme on the steady state control was analyzed. This method is not limited by the bandwidth of the current control loop which improves the input impedance characteristic of the load side and the system stability. Simulation and experimental results verifying the effectiveness of the new active damping method were presented.</p>
-      </abstract>
-																</p>
-				<p class="keyWord"><b>KEY WORDS :</b>
-																		<em>metro traction drive system;</em>
-																								<em>negative impedance;</em>
-																								<em>stability control;</em>
-																								<em>voltage compensation;</em>
-																								<em>over-modulation;</em>
-																																																																						</p>
-			</div>
+		
 			<div class="content">
 				{$data.content}
 			</div>
@@ -182,7 +108,7 @@
 			</ul>
 		</div>
 	</div>
-<div>
+</div>
 <!-- 移动端图片层 -->	
 <div class="zoom_img_wrap">
 	<div class="zoom_img_body">
@@ -194,6 +120,9 @@
 	</div>
 	
 </div>
+
+
+</body>
 <!-- 回到顶部 -->
 <a class="scrollup" href="#"></a>	
 <!-- 移动端侧导航按钮 -->	
@@ -202,7 +131,7 @@
 </html>
 <script src="__HOME__/js/jquery.js"></script>
 <script src="__HOME__/js/colorbox.js"></script>
-<script src="__HOME__/js/line.js"></script>
+<script type="text/javascript" src="__HOME__/js/line.js"></script>
 <script type="text/javascript"  src="__HOME__/js/MathJax-master/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
@@ -211,3 +140,6 @@
 		tex2jax: {inlineMath: [ ['$','$'], ["\\(","\\)"] ],displayMath: [ ['$$','$$'], ["\\[","\\]"] ],processEscapes: true},
 		"HTML-CSS": { availableFonts: ["TeX"] }});
 </script>
+
+
+

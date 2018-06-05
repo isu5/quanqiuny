@@ -1,4 +1,8 @@
-    //回到顶部
+$('h3,h4,h5').each(function(index, el) {
+		
+		$(this).addClass('outline_anchor');
+	});   
+	//回到顶部
     $(window).scroll(function(){
         if ($(this).scrollTop() > 100) {
             $('.scrollup').fadeIn();
@@ -180,6 +184,3 @@
             $('#sideCatalog-up').removeClass('sideCatalog-up-disable').addClass('sideCatalog-up-enable');
         }
     }
-
-	
-    

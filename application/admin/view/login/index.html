@@ -9,7 +9,17 @@
     <link rel="stylesheet" href="__ADMIN__/frame/layui/css/layui.css">
     <link rel="stylesheet" href="__ADMIN__/css/style.css">
     <link rel="icon" href="__ADMIN__/image/code.png">
+    <script type="text/javascript">
+    //退出管理员，跳出框架外
+    if(window.top!==window.self){window.top.location=window.location};
+        $(function(){
+            $('form #uname').focus();
+            
+        });
+    </script>
+
 </head>
+
 <body class="login-body body">
 
 <div class="login-box">

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+	 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection" content="telephone=no"/>
+	<link rel="stylesheet" type="text/css" href="/static/home/css/common_1.css">
+	<link rel="stylesheet" type="text/css" href="/static/home/css/artlist.css">
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<style>
+		
+	</style>
+	
+</head>
+<body>
+	
+	<div class="container">
+		<div class="row">
+			<form class="form-horizontal" role="form">
+			<table class="table table-condensed">
+			<input type="hidden" name="state" value="1">
+				<caption>全球能源互联网查询系统</caption>
+					<tr>
+						<td>年份</td>
+						<td>
+						<select name="year" id="" class="form-control">
+						{volist name="cateTop" id="ct"}
+							<option value="{$ct['pid']}" >{$ct['catename']}</option>
+						{/volist}
+						</select>
+						</td>
+					</tr>
+					<tr>
+						<td>月份</td>
+						<td>
+							<select name="month" id="" class="form-control">
+								{volist name="cateson" id="cs"}
+							<option value="{$cs['id']}" >{$cs['catename']}</option>
+						{/volist}
+							</select>
+						</td>
+						
+					</tr>
+					<tr>
+						<td>关键词</td>
+						
+						<td>
+							<input type="text" name="keyword" required="请填写关键词" class="form-control" />
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						
+						<td>
+							<button type="submit" class="btn btn-primary" id="btnsubmit" >查询</button>
+						</td>
+					</tr>
+				
+			</table>
+	</form>
+			<ul class="list" id="articlelist">
+			{empty name="data"}
+			<li style="overflow:hidden;text-overflow:ellipsis; -o-text-overflow:ellipsis;white-space:nowrap;width:100%;">
+			没有您搜到的内容！
+			</li>
+			{else/}
+			{volist name="data" id="v"}
+			<li style="overflow:hidden;text-overflow:ellipsis; -o-text-overflow:ellipsis;white-space:nowrap;width:100%;">
+			<a href="{:url('Article/item',['id'=>$v['id']])}">{$v.bigtitle}</a><br>{$v.author}<br>
+			</li>
+			{/volist}
+			{/empty}
+			</ul>
+			
+		</div>
+	</div>
+
+</body>
+</html>
+<script src="__HOME__/js/jquery.js"></script>
+<script type="text/javascript">
+	var state = '{$state}';
+	$(function(){
+		if(state==""){
+			$('#articlelist').hide();
+		}else{
+			$('#articlelist').show();
+			
+		}
+		
+		
+	})
+</script>

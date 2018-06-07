@@ -8,7 +8,7 @@ class Article extends Base
 {
 	protected $pk = 'id';
 	protected $auto = ['addtime','uptime'];
-	protected function setAddTimeAttr($value){
+	protected function getAddTimeAttr($value){
 		return time();
 	}
 	protected function setUpTimeAttr($value){
@@ -58,4 +58,32 @@ class Article extends Base
     	}
     }
 
+    //前台搜索
+    public function searchfront($pagesize=1){
+		$where = [];
+		$title = input('get.keyword');
+		$year = input('get.year');
+		$month = input('get.month');
+
+		if ($title) {
+			$where['bigtitle'] = array('like',"%$title%");
+		}
+		if($year){
+			$where['c.pid'] = $year;
+		}
+		if($month){
+			$where['c.id'] = $month;
+		}
+		$data['list'] = $this->alias('a')
+		->field('a.id,a.bigtitle,a.author,c.catename')
+		->join('__CATEGORY__ c ', 'c.id = a.cid')
+		->where($where)
+		->order('id desc')
+		->paginate($pagesize);
+		// 获取分页显示
+		$data['page'] = $data['list']->render();
+		//dump($data);die;
+		
+		return $data;
+	}
 }

@@ -19,17 +19,12 @@
             <select name="pid" id="cateid" class="control-text span-width span3">
              <option value="0">顶级栏目</option>
             {volist name="cate" id="c"}
-            <option value="$c['id']">{$c['_name']}</option>
+            <option value="{$c['id']}">{$c['_name']}</option>
             {/volist}
             </select>
         </td>
     </tr>   
-    <tr>
-        <td class="tableleft">排序</td>
-        <td>
-           <input type="text" name="sort"  value="{$data.sort}" class="control-text span-width span3"/>
-        </td>
-    </tr>
+   
     <tr>
         <td class="tableleft"></td>
         <td>

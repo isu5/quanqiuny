@@ -31,11 +31,34 @@ class Article extends Controller{
     	$id = input('param.id');
     	//dump($id);
        $data =  $this->art->where('id',$id)->find();
-
        //halt($data);
     	$this->assign('data',$data);
         return view();
     }
 
+
+    //搜索
+    public function search(){
+      $data = $this->art->searchfront();
+      $state = input('get.state');
+
+      $cateTop = db('category')->where('pid',0)->select();
+      foreach ($cateTop as $key => $value) {
+       
+        $cateson = db('category')->where('pid',$value['id'])->select();
+    
+      }
+    
+      //dump($cateson);
+      $this->assign([
+          'state' => $state,
+          'data'=>$data['list'],
+          'page'=>$data['page'],
+          'cateTop' => $cateTop,
+          'cateson' => $cateson
+          ]);
+      return view();
+
+    }
 
 }

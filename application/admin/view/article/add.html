@@ -33,7 +33,7 @@
             <select name="cid" id="cateid" class="control-text span-width span3" datatype="*" nullmsg="请选择栏目" errormsg="请选择栏目">
                 <option value="">请选择栏目</option>
                 {volist name="cate" id="ca"}
-                    <option value="{$ca.id}">{$ca['_name']}</option>
+                    <option value="{$ca.id}"  {if condition="$ca['pid'] eq 0"} disabled="disabled" {/if}>{$ca['_name']}</option>
                 {/volist}
             </select>
         </td>

@@ -45,6 +45,7 @@ class Category extends Common{
         $id = input('param.id');
        
         if (request()->isPost()) {
+            /*halt(input('post.'));*/
            $res = $this->db->edit(input('post.'));
             if ($res['valid']) {
                 $this->success($res['msg'],'index');
@@ -67,6 +68,11 @@ class Category extends Common{
     //删除
     public function delete(){
          $id = input('param.id');
+         $pid = $this->db->where('id',$id)->find();
+        // halt($pid['pid']);
+         if ($pid['pid'] == 0) {
+            return json(['valid'=>2,'msg'=>'该栏目为顶级栏目不允许删除！']);
+         }
          if(CategoryModel::destroy($id)){
             return json(['valid'=>1,'msg'=>'删除成功']);
          }else{

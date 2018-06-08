@@ -1,0 +1,28 @@
+{extend name="public:base"}
+{block name="main"}
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+    <tr>
+        <th>用户id</th>
+        <th>用户名称</th>
+        <th>最后登录时间</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    {volist name="data" id="v"}
+	     <tr>
+            <td>{$v.id}</td>
+            <td>{$v.username}</td>
+            <td>{$v.login_lasttime|date='Y-m-d H:i',###}</td>
+            <td>
+                <a href="{:url('admin/edit',['id'=>$v['id']])}">编辑</a>                
+            </td>
+        </tr>
+    {/volist}	
+</table>
+
+
+{/block}
+{block name="js"}
+
+{/block}

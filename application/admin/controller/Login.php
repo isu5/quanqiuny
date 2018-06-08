@@ -4,7 +4,7 @@
 */
 namespace app\admin\controller;
 use think\Controller;
-use app\admin\model\Admin;
+use app\common\model\Admin;
 class Login extends controller
 {
 	//登录方法
@@ -17,6 +17,7 @@ class Login extends controller
     		$rest = $admin->where('username',$data['username'])->find();
     		if($rest){
     			if($rest['password'] == sha1($data['password'])) {
+                    session('userid',$rest['id']);
     				session('username',$rest['username']);
     			}else{
     				return json(['status'=>201,'msg'=>'密码错误！']);

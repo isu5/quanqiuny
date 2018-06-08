@@ -29,7 +29,7 @@ class Article extends Base
 		->paginate($pagesize);
 		// 获取分页显示
 		$data['page'] = $data['list']->render();
-		//dump($data);die;
+		//print_r($data);
 		//dump($this->getLastSql());
 		return $data;
 	}

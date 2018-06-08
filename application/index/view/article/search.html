@@ -26,9 +26,10 @@
 					<tr>
 						<td>年份</td>
 						<td>
-						<select name="year" id="" class="form-control">
+						<select name="year" id="" class="form-control" >
+						<option value="">请选择</option>
 						{volist name="cateTop" id="ct"}
-							<option value="{$ct['pid']}" >{$ct['catename']}</option>
+							<option value="{$ct['pid']}" {if condition="input('get.month') eq $ct['pid']"} selected="selected" {/if}>{$ct['catename']}</option>
 						{/volist}
 						</select>
 						</td>
@@ -36,10 +37,11 @@
 					<tr>
 						<td>月份</td>
 						<td>
-							<select name="month" id="" class="form-control">
-								{volist name="cateson" id="cs"}
-							<option value="{$cs['id']}" >{$cs['catename']}</option>
-						{/volist}
+							<select name="month" id="" class="form-control" >
+							<option value="">请选择</option>
+							{volist name="cateson" id="cs"}
+								<option value="{$cs['id']}" {if condition="input('get.month') eq $cs['id']"} selected="selected" {/if}>{$cs['catename']}</option>
+							{/volist}
 							</select>
 						</td>
 						
@@ -48,7 +50,7 @@
 						<td>关键词</td>
 						
 						<td>
-							<input type="text" name="keyword" required="请填写关键词" class="form-control" />
+							<input type="text" name="keyword" required="请填写关键词" value="{:input('get.keyword')}" class="form-control" />
 						</td>
 					</tr>
 					<tr>

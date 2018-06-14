@@ -4,7 +4,7 @@
     文章标题：
     <input type="text" name="title" id="title" class="abc input-default" placeholder="" value="{:input('get.title')}">&nbsp;&nbsp;  
     <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp;
-    <button type="button" class="btn btn-success" id="addnew">新增文章</button>
+    <button type="button" class="btn btn-success" id="addnew">新增期刊文章</button>
 </form>
 <table class="table table-bordered table-hover definewidth m10">
     <thead>
@@ -31,7 +31,7 @@
             <td>{$v.id}</td>
             <td>{$v.bigtitle|mb_substr=0,10,'utf-8'}</td>
             <td>{$v.title|mb_substr=0,80,'utf-8'}</td>
-            <td>{$v.catename}</td>
+            <td>{$v.topcate} -- {$v.catename}</td>
             <td>{$v.author}</td>
             <td>{$v.addtime|date="Y-m-d H:i",###}</td>
             <td>{$v.uptime|date="Y-m-d H:i",###}</td>

@@ -6,13 +6,14 @@
 }
 .list li{
 	border-bottom: 1px solid #eee;
-	padding: 1.2rem 2.5rem;
-	background: #fff;
+	padding: 0.8rem 0.1rem;
+	margin-bottom: -2rem;
+	
 }
 .list li a{
 	display: block;
-	font-size: 1.6rem;
-	text-decoration: underline;
+	font-size: 14px;
+	
 }
 .list li a em{
 	color: #eee;
@@ -25,4 +26,7 @@
 .list li:active {
     background-color: #fafafa;
     transition: all 0s ease 0s;
+}
+.list li p{
+	color:#B3B3B3
 }

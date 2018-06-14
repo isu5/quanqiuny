@@ -1,7 +1,11 @@
-$('h3,h4,h5').each(function(index, el) {
+$('h2,h3,h4,h5').each(function(index, el) {
 		
 		$(this).addClass('outline_anchor');
-	});   
+});
+$('li.m_catalog h3').each(function(index, el) {
+		
+		$(this).removeClass('outline_anchor');
+});
 	//回到顶部
     $(window).scroll(function(){
         if ($(this).scrollTop() > 100) {
@@ -62,11 +66,11 @@ $('h3,h4,h5').each(function(index, el) {
     allEle.each(function(i){
         $(this).attr('id','outline_anchor_'+anchor);
         text = $(this).text();
-        if($(this).is('h4')){
+        if($(this).is('h2')){
             level=1;
             m_sub= '';
         }
-        if($(this).is('h5')){
+        if($(this).is('h3')){
            level=2;
            m_sub='m_s_sub';
         }
@@ -153,8 +157,8 @@ $('h3,h4,h5').each(function(index, el) {
             $('.slide').hide();
         }
         for (var i=headLen-1; i>=0; i--) {
-            /*console.log("allEleTop====="+allEle.eq(i).offset().top);
-            console.log("allEleH====="+allEle.eq(i).height());*/
+            console.log("allEleTop====="+allEle.eq(i).offset().top);
+            console.log("allEleH====="+allEle.eq(i).height());
             if ($(this).scrollTop() >=allEle.eq(i).offset().top - allEle.eq(i).height()) {
                 index = i;
                 $('#sideCatalog-catalog dl dd').eq(index).addClass('highlight').siblings('dd').removeClass('highlight');
@@ -184,3 +188,5 @@ $('h3,h4,h5').each(function(index, el) {
             $('#sideCatalog-up').removeClass('sideCatalog-up-disable').addClass('sideCatalog-up-enable');
         }
     }
+
+	

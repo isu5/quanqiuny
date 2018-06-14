@@ -30,7 +30,7 @@ textarea {
 }
 input[type='text'], textarea {
     -webkit-appearance:none;
-	border: none;
+	border: 1px solid #DBDBDB;
 	outline: medium;
 }
 input[type='button'] {

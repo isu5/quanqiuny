@@ -23,8 +23,8 @@ p{
 .banner{
     padding: 12rem 0 0;
     text-align: center;
-    min-height: 60rem;
-    background: url(../images/bg.jpg) no-repeat right bottom;
+    min-height: 15rem;
+    background: url(../images/ebg.jpg) no-repeat right bottom;
     background-size: cover;
 }
 .banner *{
@@ -44,7 +44,7 @@ p{
 }
 .banner_art .banner_left{
 	padding: 2rem 0 2rem 2rem;
-	background: url(../images/bannercn.jpg) no-repeat right bottom;
+	background: url(../images/banneren.jpg) no-repeat right bottom;
     background-size: cover;
 	width: 23%;
     height: 11rem;
@@ -70,16 +70,6 @@ p{
 .banner_art .banner_right p span{
 	color:#ABABAB;
 	
-}
-
-.banner_art *{
-	color: #fff;
-}
-.banner_art h1{
-	font-size: 40px;
-}
-.banner_art h2{
-	font-size: 20px;
 }
 /*主体*/
 .main .wrap .subject{
@@ -249,7 +239,7 @@ a.bars {
     	line-height: 5rem;
 	}
 	.banner{
-		min-height: 16rem;
+		min-height: 15rem;
 		padding: 6rem 0 0;
 	}
 	.banner h1{

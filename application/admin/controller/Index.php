@@ -9,6 +9,9 @@ class Index extends Common
 {
     public function index()
     {
+		$host = 'http://'.$_SERVER['HTTP_HOST'];
+		
+		//dump($host);
         return $this->fetch();
     }
 }

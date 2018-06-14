@@ -1,0 +1,62 @@
+{extend name="public:base" /}
+{block name="main"}
+<form class="form-inline definewidth m20" action="index.html" method="get">    
+    <!-- 用户名称：
+    <input type="text" name="username" id="username" class="abc input-default" placeholder="" value="">&nbsp;&nbsp;  
+    <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp; -->
+    <button type="button" class="btn btn-success" id="addnew">新增栏目</button>
+</form>
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+    <tr>
+        <th width="5%">id</th>
+        <th>栏目名称</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    {volist name="data" id="v"}
+	     
+         <tr>
+            <td>{$v.id}</td>
+            <td>{$v['_name']}</td>
+            <td>
+                <a href="{:url('Encategory/edit',['id'=>$v['id']])}">编辑</a>                
+                <a href="Javascript:void(0);" onclick="cate_del(this,{$v['id']})">删除</a>                
+            </td>
+        </tr>
+    {/volist}
+</table>
+{/block}
+{block name="js"}
+<script>
+    $(function () {
+		$('#addnew').click(function(){
+
+				window.location.href="{:url('Encategory/add')}";
+		 });
+
+    });
+
+function cate_del(obj,id){
+    layer.confirm('确认要删除吗？',{
+        icon: 3,
+        title: '提示信息',
+        btn: ['是的','取消'], //按钮
+        shade: [0.4, '#393D49']
+    },function(){
+        //此处请求后台程序，下方是成功后的前台处理……
+        $.get("{:url('Encategory/delete')}", { "id": id },function(data){
+            if(data.valid==1){
+                layer.msg(data.msg, { icon: 1, time: 2000 ,shade: 0.5},function(index){
+                    $(obj).parents("tr").remove();
+                });
+            }else{
+                layer.msg(data.msg, {icon: 2, time: 2000,shade: 0.5 }); 
+            }
+             
+        }, "json");
+        
+    });
+}
+</script>
+{/block}

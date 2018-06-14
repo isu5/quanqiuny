@@ -3,9 +3,8 @@
 namespace app\common\model;
 
 use think\Model;
-use think\Db;
 
-class Article extends Base
+class Enarticle extends Base
 {
 	protected $pk = 'id';
 	protected $auto = ['addtime','uptime'];
@@ -24,7 +23,7 @@ class Article extends Base
 		}
 		$data['list'] = $this->alias('a')
 		->field('a.*,c.catename')
-		->join('__CATEGORY__ c ', 'c.id = a.cid')
+		->join('__ENCATEGORY__ c ', 'c.id = a.cid')
 		->where($where)
 		->order('a.id desc')
 		->paginate($pagesize);
@@ -60,15 +59,13 @@ class Article extends Base
     }
 
     //前台搜索
-    public function searchfront($pagesize=10){
+    public function searchfront($pagesize=1){
 		$where = [];
 		$title = input('get.keyword');
 		$year = input('get.year');
 		$month = input('get.month');
 		$state = input('get.state');
-		
 		if(!$title && !$year && !$month && !$state) return ['list'=>[],'page'=>''];
-		
 		if ($title) {
 			$where['bigtitle'] = array('like',"%$title%");
 		}
@@ -85,14 +82,6 @@ class Article extends Base
 			$cateid = implode(',',$cateid);
 			$where['cid'] = array('in',$cateid);
 		}
-		
-		/* $data['list'] = $this->alias('a')
-		->field('a.id,a.bigtitle,a.author,c.catename')
-		->join('__CATEGORY__ c ', 'c.id = a.cid')
-		->where($where)
-		->order('a.id desc')
-		->paginate($pagesize,true,['query'=>['keyword'=>$title,'year'=>$year,'month'=>$month,'state'=>$state]]);
-		print_r($this->getLastSql()); */
 		$data['list'] = $this
 		->field('id,bigtitle,author')
 		->where($where)
@@ -101,14 +90,10 @@ class Article extends Base
 		//print_r($this->getLastSql());
 		// 获取分页显示
 		$data['page'] = $data['list']->render();
+		
 		//dump($data);die;
 		
 		return $data;
 	}
-	
-	public function category()
-    {
-        return $this->belongsTo('category');
-    }
 	
 }

@@ -4,17 +4,17 @@
 */
 namespace app\admin\controller;
 use think\Controller;
-use app\common\model\Category as CategoryModel;
-use app\common\model\Article as ArticleModel;
+use app\common\model\Encategory as EncategoryModel;
+use app\common\model\Enarticle as EnarticleModel;
 
-class Article extends Common
+class Enarticle extends Common
 {
     private $cate = null;
     private $art = null;
     public function _initialize(){
         parent::_initialize();
-        $this->cate = new CategoryModel();
-        $this->art = new ArticleModel();
+        $this->cate = new EncategoryModel();
+        $this->art = new EnarticleModel();
     }
 	//列表
     public function index()
@@ -80,7 +80,7 @@ class Article extends Common
     //删除
     public function delete(){
         $id = input('param.id');
-        if(ArticleModel::destroy($id)){
+        if(EnarticleModel::destroy($id)){
             return json(['valid'=>1,'msg'=>'删除成功']);
         }else{
             return json(['valid'=>0,'msg'=>'删除失败']);

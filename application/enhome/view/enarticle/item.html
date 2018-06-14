@@ -5,12 +5,12 @@
 			{$data.bigtitle}
 	</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<meta name="format-detection" content="telephone=no"/>
 	<link rel="stylesheet" type="text/css" href="__HOME__/css/common.css">
-	<link rel="stylesheet" type="text/css" href="__HOME__/css/base.css">
+	<link rel="stylesheet" type="text/css" href="__HOME__/css/baseen.css">
 	<link rel="stylesheet" type="text/css" href="__HOME__/css/colorbox.css">
 	<link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
@@ -18,15 +18,15 @@
 <div class="header">
 	<div class="navbar-header"></div>	
 	<div class="navbar-collapse">
-		<a href="/" class="active">首页</a>
-		<a href="{:url('article/search')}" class="">历史搜索</a>
+		<a href="{$host}/enhome" class="active">Home</a>
+		<a href="{:url('enarticle/search')}" class="">Historical search</a>
 	</div>
 </div>	
 <div class="banner_art">
 	<div class="banner_left"></div>
 	<div class="banner_right">
 		<p>
-		全球能源互联网<br/>
+		Global Energy Interconnection<br/>
 		<span>{$year}.{$pid}</span>
 			
 		</p>
@@ -43,9 +43,7 @@
 			<p style="text-align:center">
 				{$data.author}					
         	</p>
-			<p style="text-align:center">
-			{$data.position}
-			</p>
+		 <p style="text-align:center">{$data.position}</p>
 		 		 
 		
 		<div class="author">
@@ -55,9 +53,8 @@
 
 			</div>
 			{if condition="($data['description'] eq '') OR ($data['keywords'] eq '')"}
-			
 			{else/}
-			<h2 style="font-size: 1.4em;">摘要</h2>
+			<h2 style="font-size: 1.4em;">Summary</h2>
 			<div class="details">
 				<p style="text-indent: 3rem;">
 				<abstract lang="CN">
@@ -67,7 +64,7 @@
 		      </abstract>
 		      </p>
 			<p class="keyWord">
-				<b>关键词 :</b>
+				<b>Keywords:</b>
 				<em>{$data.keywords}</em>
 				
 			</p>
@@ -149,7 +146,7 @@
 		jax: ["input/TeX", "output/HTML-CSS"], 
 		tex2jax: {inlineMath: [ ['$','$'], ["\\(","\\)"] ],displayMath: [ ['$$','$$'], ["\\[","\\]"] ],processEscapes: true},
 		"HTML-CSS": { availableFonts: ["TeX"] }});
-	//设置图片自适应
+		//设置图片自适应
 	$(window).load(function(){
 		$(".content img").addClass("img-responsive center-block");
 		$(".banner_art .banner_left").addClass("img-responsive center-block");

@@ -14,50 +14,77 @@ class Article extends Controller{
         $this->art = new Art();
     }
 
-    //列表页
-    public function list(){
-    	$id = input('param.pid');
-    	//dump($pid);
-       $data =  $this->art->field('id,bigtitle,author')->where('cid',$id)->order('id desc')->select();
-       //需要分页
-       //dump($data);
-    	$this->assign('data',$data);
+	//列表页
+	public function list(){
+		$id = input('param.pid');
+		//查出接收的pid 下的所有栏目
+		$cateTop = db('category')->where('pid',$id)->select();
+		
+		foreach($cateTop as &$v){
+			$v['art']  =  $this->art
+					   ->field('id,bigtitle,author')
+					   ->where('cid',$v['id'])
+					   ->order('id acs')->select();
+		}
+		
+		//$data = $this->cate->with('article')->where('pid',$id)->select();
+		//var_dump($data);die;
+		
+	   $this->assign([
+			'cateTop'=>$cateTop,
+		]);
         return view();
-
-    }
+	}
 
     //内容页
     public function item(){
     	$id = input('param.id');
-    	//dump($id);
-       $data =  $this->art->where('id',$id)->find();
+		
+		$data =  $this->art->where('id',$id)->find();
+		//print_r($data);die;
+		//查出当期期数
+		$cid = $this->cate->where('id',$data['cid'])->find();
+		//print_r($cid);die;
+		$pid = $this->cate->where('id',$cid['pid'])->find();
+		//$pid = $this->cate->where('id',$pid['id'])->find();
+		//print_r($pid);die;
+		$year = date('Y');
+		//halt($year);
        //halt($data);
-    	$this->assign('data',$data);
+    	$this->assign([
+			'year' => $year,
+			'pid' => $pid['catename'],
+			'data'=>$data
+		]);
         return view();
     }
 
 
     //搜索
     public function search(){
-      $data = $this->art->searchfront();
-      $state = input('get.state');
+		$data = $this->art->searchfront();
+		
+		$state = input('get.state');
+		
+		$cateTop = db('category')->where('pid',0)->select();
+		
+		foreach ($cateTop as $key => &$value) {
 
-      $cateTop = db('category')->where('pid',0)->select();
-      foreach ($cateTop as $key => $value) {
-       
-        $cateson = db('category')->where('pid',$value['id'])->select();
-    
-      }
-    
-      //dump($cateson);
-      $this->assign([
-          'state' => $state,
-          'data'=>$data['list'],
-          'page'=>$data['page'],
-          'cateTop' => $cateTop,
-          'cateson' => $cateson
-          ]);
-      return view();
+			$cateson = db('category')->where('pid',$value['id'])->select();
+
+		}
+		/*  echo "<pre>";
+		print_r($cateTop);
+		print_r($cateson);  */
+		//dump($cateson);
+		$this->assign([
+		  'state' => $state,
+		  'data'=>$data['list'],
+		  'page'=>$data['page'],
+		  'cateTop' => $cateTop,
+		  'cateson' => $cateson
+		  ]);
+		return view();
 
     }
 

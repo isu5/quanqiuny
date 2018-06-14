@@ -1,0 +1,89 @@
+<?php
+namespace app\enhome\controller;
+use think\Controller;
+use app\common\model\Encategory as Cate;
+use app\common\model\Enarticle as Art;
+
+class Enarticle extends Controller{
+
+	private $cate = null;
+	private $art = null;
+    public function _initialize(){
+        parent::_initialize();
+        $this->cate = new Cate();
+        $this->art = new Art();
+		$host = 'http://'.$_SERVER['HTTP_HOST'];
+		//年份
+		$year = date('Y');
+		$this->assign([
+		'year' => $year,
+		'host' => $host
+		]);
+	
+    }
+
+    //列表页
+    public function list(){
+    	$id = input('param.pid');
+    	//dump($id);
+		
+       $cateTop = db('encategory')->where('pid',$id)->select();
+		
+		foreach($cateTop as &$v){
+			$v['art']  =  $this->art
+					   ->field('id,bigtitle,author')
+					   ->where('cid',$v['id'])
+					   ->order('id acs')->select();
+		}
+    	$this->assign([
+			'cateTop'=>$cateTop,
+		]);
+        return view();
+
+    }
+
+    //内容页
+    public function item(){
+		$id = input('param.id');
+		
+    	//dump($id);
+		$data =  $this->art->where('id',$id)->find();
+		$cid = $this->cate->where('id',$data['cid'])->find();
+		$pid = $this->cate->where('id',$cid['pid'])->find();
+		
+		//halt($pid['pid']);
+    	$this->assign([
+			
+			'pid' => $pid['catename'],
+			'data'=>$data
+		]);
+        return view();
+    }
+
+
+    //搜索
+    public function search(){
+      $data = $this->art->searchfront();
+      $state = input('get.state');
+
+      $cateTop = db('Encategory')->where('pid',0)->select();
+	  
+      foreach ($cateTop as $key => &$value) {
+       
+        $cateson = db('Encategory')->where('pid',$value['id'])->select();
+    
+      }
+    
+      //dump($cateson);
+      $this->assign([
+          'state' => $state,
+          'data'=>$data['list'],
+          'page'=>$data['page'],
+          'cateTop' => $cateTop,
+          'cateson' => $cateson
+          ]);
+      return view();
+
+    }
+
+}

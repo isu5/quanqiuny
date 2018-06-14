@@ -31,9 +31,31 @@ class Base extends Model
         return $data;
     }
 
-    //测试
-    public function test(){
-       return '1233123';
+   //@获取子栏目ID号
+    private function sonCategoryIds($categoryID)
+    {
+        //@初始化栏目数组
+        $array[] = $categoryID;
+        
+        do
+        {
+            $ids = '';
+           // $temp = $this->mysql->select('SELECT `id` FROM `pcb_article_category` WHERE `parentID` IN (' . $categoryID . ')');.
+		   $where['pid'] = array('in',$categoryID);
+			$temp = $this->select();
+		   foreach ($temp as $v)
+            {
+                $array[] = $v['id'];
+                $ids .= ',' . $v['id'];
+            }
+            $ids = substr($ids, 1, strlen($ids));
+            $categoryID = $ids;
+        }
+        while (!empty($temp));
+
+        $ids = implode(',', $array);
+        
+        return $ids;
     }
 
 

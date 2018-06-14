@@ -4,11 +4,11 @@ namespace app\common\model;
 
 use think\Model;
 
-class Category extends Base
+class Encategory extends Base
 {
     //
     protected $pk = 'id';
-    protected $table = 'qq_category';
+    protected $table = 'qq_encategory';
 
     //实现添加功能
     public function store($data){
@@ -36,12 +36,6 @@ class Category extends Base
     		
     	}
     }
-	
-	 public function article()
-    {
-        return $this->hasMany('article','cid','id');
-    }
-	
 
     
 }

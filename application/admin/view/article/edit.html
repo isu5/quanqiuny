@@ -12,7 +12,7 @@
     }
     .content{width: 1160px;min-height:350px;}
 </style>
-<form action="{:url()}" method="post" id="artForm">
+<form action="{:url()}" method="post" id="artForm" enctype="multipart/form-data">
 <table class="table table-bordered table-hover definewidth m10">
     <input type="hidden" name="id" value="{$data.id}">
     <tr>
@@ -23,9 +23,9 @@
 
     </tr>
     <tr>
-        <td width="10%" class="tableleft"><font style="color:red">*</font>标题</td>
+        <td width="10%" class="tableleft">标题</td>
         <td>
-         <input type="text" name="title" class="control-text span-width span6" value="{$data.title}"  datatype="*" nullmsg="请输入会议标题" errormsg="会议标题输入有误"/>
+         <input type="text" name="title" class="control-text span-width span6" value="{$data.title}" />
         </td>
     </tr>
     <tr>
@@ -162,10 +162,10 @@
     ]
      // 隐藏“网络图片”tab
     //editor.customConfig.showLinkImg = false
-    editor.customConfig.uploadImgShowBase64 = true   // 使用 base64 保存图片
-    editor.customConfig.uploadImgServer = '/upload'  // 上传图片到服务器
-    // 限制一次最多上传 5 张图片
-    editor.customConfig.uploadImgMaxLength = 5
+   editor.customConfig.uploadImgMaxLength = 5
+	editor.customConfig.uploadImgMaxSize = 10 * 1024 * 1024;
+	editor.customConfig.uploadFileName = 'file'
+    editor.customConfig.uploadImgServer = "{:url('article/editorUpload')}"  // 上传图片到服务器
     editor.create();
    
 

@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>《全球能源互联网》往期查询系统</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<meta name="format-detection" content="telephone=no"/>
@@ -13,19 +12,16 @@
 	<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 	<style>
 		body{background:#EEEEEE}
-		.table>tbody>tr>td{
+		.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
 			border: 0px solid transparent !important;
 			vertical-align: 0;
 		}
-		<!-- .table>tbody>tr>td.year{
-			padding-left:20px
-		} -->
-		.table>tbody>tr>td.syear{
-			padding-right:3rem
+		.table>tbody>tr>td.year{
+			padding-left:47px
 		}
 		caption{color:#4485BD;padding-top:4rem}
 		table tr.hrxian{background:url('/static/home/images/righthr.png') no-repeat}
-		.btn{padding: 6px 40px;margin: 0 2rem;}
+		.btn{padding: 6px 40px;}
 		.list li{padding:0.8rem 1.5rem}
 	</style>
 	
@@ -36,26 +32,24 @@
 		<div class="row">
 			<div class="col-sm-6"></div>
 			<div class="col-sm-4">
-			<form class="form-horizontal" role="form">
-			
-			
-			<table border="0" class="table table-condensed" >
-			<input type="hidden" name="state" value="1">
-				<caption><b>《全球能源互联网》</b>往期查询系统 ▶▶▶</caption>
-				<tr class="hrxian">
+				<form class="form-horizontal" role="form">
+				<table class="table table-condensed">
+				<input type="hidden" name="state" value="1">
+					<caption><b>Global Energy Interconnection</b> Query system</caption>
+						<tr class="hrxian">
 					<td colspan="2">&nbsp;</td>
 					
-				</tr>
-				
-				<tr class="">
-					<td colspan="2">&nbsp;</td>
+					</tr>
 					
-				</tr>
+					<tr class="">
+						<td colspan="2">&nbsp;</td>
+						
+					</tr>
 					<tr>
-						<td class="year">年&nbsp;&nbsp;份：</td>
-						<td  class="syear">
+						<td class="year">Year:</td>
+						<td class="syear">
 						<select name="year" id="" class="form-control" >
-						<option value="">--------请选择--------</option>
+						<option value="">--------Choose--------</option>
 						{volist name="cateTop" id="ct"}
 							<option value="{$ct['id']}" {if condition="input('get.year') eq $ct['id']"} selected="selected" {/if}>{$ct['catename']}</option>
 						{/volist}
@@ -63,10 +57,10 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="year">月&nbsp;&nbsp;份：</td>
+						<td class="year">Month:</td>
 						<td class="syear">
 							<select name="month" id="" class="form-control" >
-							<option value="">--------请选择--------</option>
+							<option value="">--------Choose--------</option>
 							{volist name="cateson" id="cs"}
 								<option value="{$cs['id']}" {if condition="input('get.month') eq $cs['id']"} selected="selected" {/if}>{$cs['catename']}</option>
 							{/volist}
@@ -75,10 +69,10 @@
 						
 					</tr>
 					<tr>
-						<td style="padding-left:15px">关键词：</td>
+						<td>Key Words:</td>
 						
-						<td class="syear">
-							<input type="text" name="keyword" placeholder="支持期刊标题模糊搜索" required="请填写关键词" value="{:input('get.keyword')}" class="form-control" />
+						<td>
+							<input type="text" name="keyword" placeholder="Support Journal title Fuzzy Search" required="请填写关键词" value="{:input('get.keyword')}" class="form-control" />
 						</td>
 					</tr>
 					<tr class="">
@@ -93,31 +87,32 @@
 						<td></td>
 						
 						<td>
-							<button type="submit" class="btn btn-primary" id="btnsubmit" >查询</button>
+							<button type="submit" class="btn btn-primary" id="btnsubmit" >Query</button>
 						</td>
 					</tr>
 				
 			</table>
-	</form>
+		</form>
 	</div>
 	</div>
 	<div class="row">
-		<ul class="list" id="articlelist">
-		{empty name="data"}
-		<li style="width:100%;color:red">
-		没有您搜到的内容！
-		</li>
-		{else/}
-		{volist name="data" id="v"}
-		<li style="width:100%;">
-		<a href="{:url('Article/item',['id'=>$v['id']])}">{$v.bigtitle}</a>
-		<p>{$v.author}<p>
-		</li>
-		{/volist}
-		{/empty}
-		</ul>
-		{$page}
-	</div>
+			<ul class="list" id="articlelist">
+			{empty name="data"}
+			<li style="overflow:hidden;text-overflow:ellipsis; -o-text-overflow:ellipsis;white-space:nowrap;width:100%;color:red">
+			There is no content that you have found!
+			</li>
+			{else/}
+			{volist name="data" id="v"}
+			<li style="width:100%;">
+			<a href="{:url('Enarticle/item',['id'=>$v['id']])}">{$v.bigtitle}</a>
+			<p>{$v.author}</p>
+			</li>
+			{/volist}
+			
+			{/empty}
+			</ul>
+			{$page}
+		</div>
 	</div>
 
 </body>

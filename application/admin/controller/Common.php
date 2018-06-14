@@ -11,7 +11,10 @@ class Common extends controller {
 
 		if(!session('username')){
 			$this->success("非法访问！正在跳转登录页面",'Login/index');
+			
 		}
+		$host = $_SERVER['SERVER_NAME'];
+		$this->assign('host',$host);
 	}
 
 

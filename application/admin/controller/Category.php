@@ -53,10 +53,11 @@ class Category extends Common{
                 $this->error($res['msg']);
             }
         }
-
-
+		
+	
         $data = $this->db->where('id',$id)->find();
         $cate = $this->db->getTree();
+		//dump($data);
         $this->assign([
             'data'=>$data,
             'cate'=>$cate

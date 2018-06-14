@@ -22,7 +22,7 @@ p{
 }
 .banner{
     padding: 12rem 0 0;
-    text-align: center;
+   
     min-height: 15rem;
     background: url(../images/ebg.jpg) no-repeat right bottom;
     background-size: cover;
@@ -239,9 +239,10 @@ a.bars {
     	line-height: 5rem;
 	}
 	.banner{
-		min-height: 15rem;
-		padding: 6rem 0 0;
+		padding: 3.5rem 0 0;
+		font-size: 12px;
 	}
+	.banner span{padding-left:3rem}
 	.banner h1{
 		font-size: 30px;
 	}

@@ -26,7 +26,8 @@ class Enarticle extends Controller{
     public function list(){
     	$id = input('param.pid');
     	//dump($id);
-		
+		//查出二级栏目
+		$cate = $this->cate->where('id',$id)->find();
        $cateTop = db('encategory')->where('pid',$id)->select();
 		
 		foreach($cateTop as &$v){
@@ -37,6 +38,7 @@ class Enarticle extends Controller{
 		}
     	$this->assign([
 			'cateTop'=>$cateTop,
+			'cate' => $cate['catealias']
 		]);
         return view();
 

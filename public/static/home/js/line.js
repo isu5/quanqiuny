@@ -157,8 +157,8 @@ $('li.m_catalog h3').each(function(index, el) {
             $('.slide').hide();
         }
         for (var i=headLen-1; i>=0; i--) {
-            console.log("allEleTop====="+allEle.eq(i).offset().top);
-            console.log("allEleH====="+allEle.eq(i).height());
+           /*  console.log("allEleTop====="+allEle.eq(i).offset().top);
+            console.log("allEleH====="+allEle.eq(i).height()); */
             if ($(this).scrollTop() >=allEle.eq(i).offset().top - allEle.eq(i).height()) {
                 index = i;
                 $('#sideCatalog-catalog dl dd').eq(index).addClass('highlight').siblings('dd').removeClass('highlight');

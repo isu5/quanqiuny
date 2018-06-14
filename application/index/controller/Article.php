@@ -12,11 +12,18 @@ class Article extends Controller{
         parent::_initialize();
         $this->cate = new Cate();
         $this->art = new Art();
+		$year = date('Y');
+		$this->assign('year',$year);
+		
     }
 
 	//列表页
 	public function list(){
 		$id = input('param.pid');
+		//查出二级栏目
+		$cate = $this->cate->where('id',$id)->find();
+		
+		
 		//查出接收的pid 下的所有栏目
 		$cateTop = db('category')->where('pid',$id)->select();
 		
@@ -32,6 +39,7 @@ class Article extends Controller{
 		
 	   $this->assign([
 			'cateTop'=>$cateTop,
+			'cate' => $cate['catealias']
 		]);
         return view();
 	}

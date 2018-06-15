@@ -68,8 +68,9 @@ class Category extends Common{
 
     //删除
     public function delete(){
-         $id = input('param.id');
-          $pid = $this->db->where('pid',$id)->find();
+		 $id = input('param.id');
+		 $pid = $this->db->where('pid',$id)->find();
+		
         // halt($pid['pid']);
          if ($pid) {
             return json(['valid'=>2,'msg'=>'该栏目有子栏目不允许删除！']);

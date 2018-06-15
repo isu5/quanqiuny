@@ -10,6 +10,7 @@
     </tr>
     </thead>
     {volist name="data" id="v"}
+		{if condition="session('userid') eq $v['id']"}
 	     <tr>
             <td>{$v.id}</td>
             <td>{$v.username}</td>
@@ -18,6 +19,7 @@
                 <a href="{:url('admin/edit',['id'=>$v['id']])}">编辑</a>                
             </td>
         </tr>
+		{/if}
     {/volist}	
 </table>
 

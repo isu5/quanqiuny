@@ -17,7 +17,7 @@
 			vertical-align: 0;
 		}
 		.table>tbody>tr>td.year{
-			padding-left:47px
+			text-align:right
 		}
 		caption{color:#4485BD;padding-top:4rem}
 		table tr.hrxian{background:url('/static/home/images/righthr.png') no-repeat}
@@ -69,10 +69,10 @@
 						
 					</tr>
 					<tr>
-						<td>Key Words:</td>
+						<td class="year">Key Words:</td>
 						
 						<td>
-							<input type="text" name="keyword" placeholder="Support Journal title Fuzzy Search" required="请填写关键词" value="{:input('get.keyword')}" class="form-control" />
+							<input type="text" name="keyword" placeholder="Support Journal title Fuzzy Search" value="{:input('get.keyword')}" class="form-control" />
 						</td>
 					</tr>
 					<tr class="">

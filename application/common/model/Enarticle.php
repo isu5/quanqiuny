@@ -78,7 +78,8 @@ class Enarticle extends Base
 		}
 		if($month){
 			//获取栏目
-			$cate = db('category')->where('pid',$month)->select();
+			$cate = db('encategory')->where('pid',$month)->select();
+			
 			$cateid=array_column($cate, 'id');
 			$cateid = implode(',',$cateid);
 			$where['cid'] = array('in',$cateid);

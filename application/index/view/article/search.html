@@ -17,9 +17,9 @@
 			border: 0px solid transparent !important;
 			vertical-align: 0;
 		}
-		<!-- .table>tbody>tr>td.year{
-			padding-left:20px
-		} -->
+		.table>tbody>tr>td.year{
+			text-align:right
+		}
 		.table>tbody>tr>td.syear{
 			padding-right:3rem
 		}
@@ -75,10 +75,10 @@
 						
 					</tr>
 					<tr>
-						<td style="padding-left:15px">关键词：</td>
+						<td class="year">关键词：</td>
 						
 						<td class="syear">
-							<input type="text" name="keyword" placeholder="支持期刊标题模糊搜索" required="请填写关键词" value="{:input('get.keyword')}" class="form-control" />
+							<input type="text" name="keyword" placeholder="支持期刊标题模糊搜索" value="{:input('get.keyword')}" class="form-control" />
 						</td>
 					</tr>
 					<tr class="">

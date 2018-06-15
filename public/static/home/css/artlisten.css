@@ -1,0 +1,32 @@
+﻿html,body{
+	background: #eee;
+}
+.list{
+	padding:1rem 0 4rem;
+}
+.list li{
+	border-bottom: 1px solid #eee;
+	padding: 1rem 0.1rem;
+	margin-bottom: -0.8rem;
+	
+}
+.list li a{
+	display: block;
+	font-size: 14px;
+	
+}
+.list li a em{
+	color: #eee;
+	font-size: 1.4rem;
+	float: right;
+}
+.l-year li a{
+	background: url(../images/arricon.png) no-repeat right center /12px;
+}
+.list li:active {
+    background-color: #fafafa;
+    transition: all 0s ease 0s;
+}
+.list li p{
+	color:#B3B3B3
+}

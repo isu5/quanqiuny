@@ -60,7 +60,7 @@ class Enarticle extends Base
     }
 
     //前台搜索
-    public function searchfront($pagesize=1){
+    public function searchfront($pagesize=10){
 		$where = [];
 		$title = input('get.keyword');
 		$year = input('get.year');

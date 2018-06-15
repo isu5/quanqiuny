@@ -56,7 +56,7 @@ class Enarticle extends Controller{
 		//halt($pid['pid']);
     	$this->assign([
 			
-			'pid' => $pid['catename'],
+			'pid' => $pid['catealias'],
 			'data'=>$data
 		]);
         return view();

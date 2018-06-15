@@ -61,7 +61,7 @@ class Article extends Controller{
        //halt($data);
     	$this->assign([
 			'year' => $year,
-			'pid' => $pid['catename'],
+			'pid' => $pid['catealias'],
 			'data'=>$data
 		]);
         return view();

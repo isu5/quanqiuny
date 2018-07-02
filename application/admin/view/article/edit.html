@@ -45,6 +45,16 @@
            <input type="text" name="author" value="{$data.author}" class="control-text span-width span3" datatype="*" nullmsg="请输入作者名字" errormsg="请输入作者名字"/>
         </td>
     </tr>
+	<tr>
+        <td class="tableleft"><font style="color:red">*</font>文章页作者</td>
+        <td>
+           <div id="editor2">
+            <!-- <p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p> -->
+			</div>
+           <textarea id="text1" name="artauthor" style="display: none" datatype="*" nullmsg="请输入文章页作者名字" errormsg="请输入文章页作者名字"></textarea>
+        </td>
+       
+    </tr>
     <tr>
         <td class="tableleft"><font style="color:red">*</font>职位信息</td>
         <td>
@@ -102,6 +112,7 @@
 <script type="text/javascript">
     var E = window.wangEditor
     var editor = new E('#editor')
+    var editor2 = new E('#editor')
     // 或者 var editor = new E( document.getElementById('editor') )
     var $text1 = $('#text1')
      // 自定义菜单配置
@@ -167,6 +178,7 @@
 	editor.customConfig.uploadFileName = 'file'
     editor.customConfig.uploadImgServer = "{:url('article/editorUpload')}"  // 上传图片到服务器
     editor.create();
+    editor2.create();
    
 
 

@@ -56,8 +56,11 @@ class Encategory extends Common{
 
         $data = $this->db->where('id',$id)->find();
         $cate = $this->db->getTree();
+		//图片
+		$imageFile = $data['imageFile'];
         $this->assign([
             'data'=>$data,
+			'imageFile'=>$imageFile,
             'cate'=>$cate
         ]);
 

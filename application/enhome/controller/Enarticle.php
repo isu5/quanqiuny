@@ -57,6 +57,8 @@ class Enarticle extends Controller{
     	$this->assign([
 			
 			'pid' => $pid['catealias'],
+			'number' => $pid['numberart'],
+			'imageFile' => $pid['imageFile'],
 			'data'=>$data
 		]);
         return view();
@@ -66,6 +68,7 @@ class Enarticle extends Controller{
     //搜索
     public function search(){
       $data = $this->art->searchfront();
+	 // halt($data);
       $state = input('get.state');
 
       $cateTop = db('Encategory')->where('pid',0)->select();
@@ -81,6 +84,8 @@ class Enarticle extends Controller{
           'state' => $state,
           'data'=>$data['list'],
           'page'=>$data['page'],
+          'count'=>$data['num'],
+         // 'count'=>$data['num'],
           'cateTop' => $cateTop,
           'cateson' => $cateson
           ]);

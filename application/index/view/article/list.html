@@ -30,8 +30,8 @@
 			<li style="width:100%;">
 			<div class="cate_name">{$v['catename']}</div>
 			{volist name="v.art" id="art"}
-			<a href="{:url('Article/item',['id'=>$art['id']])}"><font style="color:#231A1B">{$art.bigtitle}</font></a><br>
-			<div class="author">{$art.author}</div><br>
+			<a href="{:url('Article/item',['id'=>$art['id']])}"><font style="color:#4485BD">{$art.bigtitle}</font></a><br>
+			<a href="{:url('Article/item',['id'=>$art['id']])}"><div class="author">{$art.author}</div></a><br>
 			{/volist}
 			</li>
 		{/volist}

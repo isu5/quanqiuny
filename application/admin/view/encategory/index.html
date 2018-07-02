@@ -12,6 +12,8 @@
         <th width="5%">id</th>
         <th>栏目名称</th>
 		<th>栏目别称</th>
+		<th>发布月份</th>
+		<th>图片</th>
         <th>操作</th>
     </tr>
     </thead>
@@ -19,8 +21,10 @@
 	     
          <tr>
             <td>{$v.id}</td>
-            <td>{$v['_name']}</td>
-			 <td>{$v.catealias}</td>
+			<td>{$v['_name']}</td>
+			<td>{$v.catealias}</td>
+			<td>{$v.numberart}</td>
+			<td><img src="{$v.imageFile}" width="3%"/></td>
             <td>
                 <a href="{:url('Encategory/edit',['id'=>$v['id']])}">编辑</a>                
                 <a href="Javascript:void(0);" onclick="cate_del(this,{$v['id']})">删除</a>                

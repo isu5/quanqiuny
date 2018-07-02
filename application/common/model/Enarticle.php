@@ -66,7 +66,7 @@ class Enarticle extends Base
 		$year = input('get.year');
 		$month = input('get.month');
 		$state = input('get.state');
-		if(!$title && !$year && !$month && !$state) return ['list'=>[],'page'=>''];
+		if(!$title && !$year && !$month && !$state) return ['list'=>[],'page'=>'','num'=>''];
 		if ($title) {
 			$where['bigtitle'] = array('like',"%$title%");
 		}
@@ -84,10 +84,13 @@ class Enarticle extends Base
 			$cateid = implode(',',$cateid);
 			$where['cid'] = array('in',$cateid);
 		}
+		//统计查询结果
+		$data['num'] = $this->where($where)->count();
+		
 		$data['list'] = $this
 		->field('id,bigtitle,author')
 		->where($where)
-		->order('id desc')
+		->order('id asc')
 		->paginate($pagesize,true,['query'=>['keyword'=>$title,'year'=>$year,'month'=>$month,'state'=>$state]]);
 		//print_r($this->getLastSql());
 		// 获取分页显示

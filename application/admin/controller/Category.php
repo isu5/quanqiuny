@@ -45,7 +45,7 @@ class Category extends Common{
         $id = input('param.id');
        
         if (request()->isPost()) {
-            /*halt(input('post.'));*/
+           // halt(input('post.'));
            $res = $this->db->edit(input('post.'));
             if ($res['valid']) {
                 $this->success($res['msg'],'index');
@@ -57,9 +57,13 @@ class Category extends Common{
 	
         $data = $this->db->where('id',$id)->find();
         $cate = $this->db->getTree();
+		//图片
+		$imageFile = $data['imageFile'];
+		//dump($imageFile);
 		//dump($data);
         $this->assign([
             'data'=>$data,
+            'imageFile'=>$imageFile,
             'cate'=>$cate
         ]);
 
@@ -81,5 +85,32 @@ class Category extends Common{
             return json(['valid'=>0,'msg'=>'删除失败']);
          }
     }
+	
+	
+	/*
+	 * 接收图片上传
+	 *  1.通过ajax接收图片。
+	 *  2.图片上传验证。
+	 *  3.将图片移动到框架应用目录 public/uploads 目录下。
+	 *  4.注意：当图片大于2M，由于php.ini配置，会报出一个致命错误。网站上线后需要手动配置。
+	 */
+	public function upload()
+	{
+		// 获取上传文件
+		$file = request()->file('file');       
+		// 验证图片,并移动图片到框架目录下。
+		$info = $file->move(ROOT_PATH.'public'.DS.'uploads');
+		if($info){
+			//
+			$path = DS.'uploads'.DS.$info->getSaveName();
+		
+			// 成功上传后 返回上传信息
+			return json(array('state'=>1,'path'=>$path));
+		}else{
+			// 上传失败返回错误信息
+			return json(array('state'=>0,'errmsg'=>'上传失败'));
+		}
+	}
+
 
 }

@@ -35,18 +35,18 @@
 				<form class="form-horizontal" role="form">
 				<table class="table table-condensed">
 				<input type="hidden" name="state" value="1">
-					<caption><b>Global Energy Interconnection</b> Query system</caption>
+					<caption><b>Global Energy Interconnection</b></caption>
 						<tr class="hrxian">
 					<td colspan="2">&nbsp;</td>
 					
 					</tr>
 					
-					<tr class="">
-						<td colspan="2">&nbsp;</td>
+					<tr class="text-center">
+						<td colspan="2"><font style="font-size:16px;font-weight:700">Search articles</font></td>
 						
 					</tr>
 					<tr>
-						<td class="year">Year:</td>
+						<td class="year">Year/Volume:</td>
 						<td class="syear">
 						<select name="year" id="" class="form-control" >
 						<option value="">--------Choose--------</option>
@@ -57,7 +57,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="year">Month:</td>
+						<td class="year">Issue:</td>
 						<td class="syear">
 							<select name="month" id="" class="form-control" >
 							<option value="">--------Choose--------</option>
@@ -87,7 +87,7 @@
 						<td></td>
 						
 						<td>
-							<button type="submit" class="btn btn-primary" id="btnsubmit" >Query</button>
+							<button type="submit" class="btn btn-primary" id="btnsubmit" >Search</button>
 						</td>
 					</tr>
 				
@@ -99,9 +99,13 @@
 			<ul class="list" id="articlelist">
 			{empty name="data"}
 			<li style="overflow:hidden;text-overflow:ellipsis; -o-text-overflow:ellipsis;white-space:nowrap;width:100%;color:red">
-			There is no content that you have found!
+			No articles found!
 			</li>
 			{else/}
+			{empty name="count"}
+			{else/}
+				{$count} articles found.
+			{/empty}
 			{volist name="data" id="v"}
 			<li style="width:100%;">
 			<a href="{:url('Enarticle/item',['id'=>$v['id']])}">{$v.bigtitle}</a>

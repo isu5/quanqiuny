@@ -97,13 +97,14 @@ class Article extends Base
 		$data['list'] = $this
 		->field('id,bigtitle,author')
 		->where($where)
-		->order('id desc')
+		->order('id asc')
 		->paginate($pagesize,true,['query'=>['keyword'=>$title,'year'=>$year,'month'=>$month,'state'=>$state]]);
 		//print_r($this->getLastSql());
 		// 获取分页显示
 		$data['page'] = $data['list']->render();
 		//dump($data);die;
-		
+		//统计查询结果
+		$data['count']=$this->where($where)->count();
 		return $data;
 	}
 	

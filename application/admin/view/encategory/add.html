@@ -5,6 +5,8 @@
 <link rel="stylesheet" type="text/css" href="__ADMIN__/frame/select2/select2.css" />
 <script type="text/javascript" src="__ADMIN__/frame/select2/select2.js"></script>
 <script type="text/javascript" src="__ADMIN__/frame/select2/select2_locale_zh-CN.js"></script>
+
+<script type="text/javascript" src="__ADMIN__/frame/plupload/plupload.full.min.js"></script>
 <!--处理select下拉，搜索功能 结束-->
 <form action="{:url()}" method="post" enctype="multipart/form-data">
 <table class="table table-bordered table-hover definewidth m10">
@@ -15,6 +17,21 @@
 	<tr>
         <td width="10%" class="tableleft">栏目别称</td>
         <td><input type="text" name="catealias" data-rules="{required:true}" class="control-text span-width span3"/></td>
+    </tr>
+	<tr>
+        <td width="10%" class="tableleft">发表月份</td>
+        <td><input type="text" name="numberart" class="control-text span-width span3"/></td>
+    </tr>
+	<tr>
+        <td width="10%" class="tableleft">图片上传</td>
+        <td>
+		<div class="demo">
+			<a class="pluploadbtn" id="btn">上传图片</a> 最大5000KB，支持jpg，jpeg，gif，png格式。	
+			<ul id="ul_pics" class="ul_pics clearfix"></ul>
+			<input type='hidden' name="imageFile" id="multimage" />
+			<div class="clear"></div>
+		</div>	
+		</td>
     </tr>
     <tr>
         <td class="tableleft">所属栏目</td>
@@ -52,4 +69,69 @@
 
     });
 </script>
+<script type="text/javascript">
+      var uploader = new plupload.Uploader({
+          runtimes: 'html5,flash,silverlight,html4', 
+          browse_button: 'btn', 
+          url: "{:url('Category/upload')}", 
+          flash_swf_url: '__ADMIN__/frame/plupload/Moxie.swf', 
+          silverlight_xap_url: '__ADMIN__/frame/plupload/Moxie.xap',
+          filters: {
+              max_file_size: '50000kb', 
+              mime_types: [
+                  {title: "files", extensions: "jpg,jpeg,png,gif"}
+              ]
+          },
+          multi_selection: false, 
+          init: {
+              FilesAdded: function(up, files) { 
+                  if ($("#ul_pics").children("li").length > 0) {
+                      alert("您上传的图片太多了！");
+                      uploader.destroy();
+                  } else {
+                      var li = '';
+                      plupload.each(files, function(file) { 
+                          li += "<li class='li_image' id='" + file['id'] + "'><div class='progress'><span class='bar'></span><span class='percent'>0%</span></div></li>";
+                      });
+                      $("#ul_pics").append(li);
+                      uploader.start();
+                  }
+              },
+              UploadProgress: function(up, file) { 
+           var percent = file.percent;
+                  $("#" + file.id).find('.bar').css({"width": percent + "%"});
+                  $("#" + file.id).find(".percent").text(percent + "%");
+              },
+              FileUploaded: function(up, file, info) { 
+                 var data = eval("(" + info.response + ")");
+				 console.log(data);
+                  $("#" + file.id).html("<div class='img'><img  src='" + data.path + "'/><span class='span_del'></span></div>");
+                  var old=$("#multimage").val();
+				$("#multimage").val(old + data.path);
+              },
+              Error: function(up, err) { 
+                  alert(err.message);
+              }
+          }
+      });
+      uploader.init();
+</script>
+<script type="text/javascript">
+$(function(){
+	$(".demo").on("mouseover",'.li_image',function(){
+		$(this).find(".span_del").show();
+	})
+	$(".demo").on("mouseout",'.li_image',function(){
+		$(this).find(".span_del").hide();
+	})
+	$("#ul_pics").on("click",'.span_del',function(){
+		var src=$(this).siblings('img').attr('src');
+		var multimage=$("#multimage").val();
+		var new_multimage=multimage.replace(src+'', '');
+		$("#multimage").val(new_multimage);
+		$(this).parents('li.li_image').remove();
+	})
+})
+</script>
+
 {/block}

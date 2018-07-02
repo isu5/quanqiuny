@@ -25,7 +25,7 @@
 		}
 		caption{color:#4485BD;padding-top:4rem}
 		table tr.hrxian{background:url('/static/home/images/righthr.png') no-repeat}
-		.btn{padding: 6px 40px;margin: 0 2rem;}
+		.btn{padding: 6px 40px;margin: 0 4rem;}
 		.list li{padding:0.8rem 1.5rem}
 	</style>
 	
@@ -52,7 +52,7 @@
 					
 				</tr>
 					<tr>
-						<td class="year">年&nbsp;&nbsp;份：</td>
+						<td class="year">年&nbsp;&nbsp;卷：</td>
 						<td  class="syear">
 						<select name="year" id="" class="form-control" >
 						<option value="">--------请选择--------</option>
@@ -63,7 +63,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="year">月&nbsp;&nbsp;份：</td>
+						<td class="year">期&nbsp;&nbsp;号：</td>
 						<td class="syear">
 							<select name="month" id="" class="form-control" >
 							<option value="">--------请选择--------</option>
@@ -92,7 +92,7 @@
 					<tr>
 						<td></td>
 						
-						<td>
+						<td >
 							<button type="submit" class="btn btn-primary" id="btnsubmit" >查询</button>
 						</td>
 					</tr>
@@ -108,7 +108,9 @@
 		没有您搜到的内容！
 		</li>
 		{else/}
+		
 		{volist name="data" id="v"}
+		
 		<li style="width:100%;">
 		<a href="{:url('Article/item',['id'=>$v['id']])}">{$v.bigtitle}</a>
 		<p>{$v.author}<p>

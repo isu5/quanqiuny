@@ -62,6 +62,8 @@ class Article extends Controller{
     	$this->assign([
 			'year' => $year,
 			'pid' => $pid['catealias'],
+			'number' => $pid['numberart'],
+			'imageFile' => $pid['imageFile'],
 			'data'=>$data
 		]);
         return view();
@@ -89,6 +91,7 @@ class Article extends Controller{
 		  'state' => $state,
 		  'data'=>$data['list'],
 		  'page'=>$data['page'],
+		  'count'=>$data['count'],
 		  'cateTop' => $cateTop,
 		  'cateson' => $cateson
 		  ]);

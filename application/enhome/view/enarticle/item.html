@@ -23,11 +23,16 @@
 	</div>
 </div>	
 <div class="banner_art">
-	<div class="banner_left"></div>
+	<div class="banner_left">
+		
+		<img src="{$imageFile}" />
+		
+		
+	</div>
 	<div class="banner_right">
 		<p>
 		Global Energy Interconnection<br/>
-		<span>{$year}.{$pid}</span>
+		<span>{$pid}<br/> {$number}</span>
 			
 		</p>
 	</div>
@@ -54,7 +59,7 @@
 			</div>
 			{if condition="($data['description'] eq '') OR ($data['keywords'] eq '')"}
 			{else/}
-			<h2 style="font-size: 1.4em;">Summary</h2>
+			<h2 style="font-size: 1.4em;">Abstract</h2>
 			<div class="details">
 				<p style="text-indent: 3rem;">
 				<abstract lang="CN">

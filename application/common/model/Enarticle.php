@@ -63,12 +63,17 @@ class Enarticle extends Base
     public function searchfront($pagesize=10){
 		$where = [];
 		$title = input('get.keyword');
+		$arr=preg_split("/[\s,]+/",$title);
+		
 		$year = input('get.year');
 		$month = input('get.month');
 		$state = input('get.state');
 		if(!$title && !$year && !$month && !$state) return ['list'=>[],'page'=>'','num'=>''];
 		if ($title) {
-			$where['bigtitle'] = array('like',"%$title%");
+			foreach($arr as $v){
+				$where['bigtitle'][] = ['like',"%$v%"];
+			}
+			$where['bigtitle'][] = 'or';
 		}
 		$time = strtotime(date('Y-m-d H:i:s',time()));
 		$t2018 = strtotime(date('Y-m-d H:i:s',1514736000));

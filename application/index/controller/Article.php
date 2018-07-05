@@ -76,11 +76,11 @@ class Article extends Controller{
 		
 		$state = input('get.state');
 		
-		$cateTop = db('category')->where('pid',0)->select();
+		$cateTop = db('category')->where('pid',0)->order('id desc')->select();
 		
 		foreach ($cateTop as $key => &$value) {
 
-			$cateson = db('category')->where('pid',$value['id'])->select();
+			$cateson = db('category')->where('pid',$value['id'])->order('id desc')->select();
 
 		}
 		/*  echo "<pre>";
@@ -91,7 +91,7 @@ class Article extends Controller{
 		  'state' => $state,
 		  'data'=>$data['list'],
 		  'page'=>$data['page'],
-		  'count'=>$data['count'],
+		  //'count'=>$data['count'],
 		  'cateTop' => $cateTop,
 		  'cateson' => $cateson
 		  ]);

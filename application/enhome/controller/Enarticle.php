@@ -71,11 +71,11 @@ class Enarticle extends Controller{
 	 // halt($data);
       $state = input('get.state');
 
-      $cateTop = db('Encategory')->where('pid',0)->select();
+      $cateTop = db('Encategory')->where('pid',0)->order('id desc')->select();
 	  
       foreach ($cateTop as $key => &$value) {
        
-        $cateson = db('Encategory')->where('pid',$value['id'])->select();
+        $cateson = db('Encategory')->where('pid',$value['id'])->order('id desc')->select();
     
       }
     
@@ -85,7 +85,6 @@ class Enarticle extends Controller{
           'data'=>$data['list'],
           'page'=>$data['page'],
           'count'=>$data['num'],
-         // 'count'=>$data['num'],
           'cateTop' => $cateTop,
           'cateson' => $cateson
           ]);

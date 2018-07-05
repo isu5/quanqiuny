@@ -55,7 +55,7 @@
 						<td class="year">年&nbsp;&nbsp;卷：</td>
 						<td  class="syear">
 						<select name="year" id="" class="form-control" >
-						<option value="">--------请选择--------</option>
+						
 						{volist name="cateTop" id="ct"}
 							<option value="{$ct['id']}" {if condition="input('get.year') eq $ct['id']"} selected="selected" {/if}>{$ct['catename']}</option>
 						{/volist}
@@ -66,7 +66,7 @@
 						<td class="year">期&nbsp;&nbsp;号：</td>
 						<td class="syear">
 							<select name="month" id="" class="form-control" >
-							<option value="">--------请选择--------</option>
+							
 							{volist name="cateson" id="cs"}
 								<option value="{$cs['id']}" {if condition="input('get.month') eq $cs['id']"} selected="selected" {/if}>{$cs['catename']}</option>
 							{/volist}

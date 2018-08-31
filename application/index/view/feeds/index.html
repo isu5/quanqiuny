@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection" content="telephone=no"/>
+	<!-- <link rel="stylesheet" type="text/css" href="http://www.dcloud.io/hellomui/css/mui.min.css"> -->
+	<link rel="stylesheet" type="text/css" href="__HOME__/css/mui.min.css">
+	<link rel="stylesheet" type="text/css" href="__HOME__/css/app.css">
+	
+	
+<title>订阅期刊</title>
+<style>
+	label{font-size:12px}
+</style>
+</head>
+<body width="80%">
+<header class="mui-bar mui-bar-nav">
+	<h1 class="mui-title">订阅期刊</h1>
+</header>
+<div class="mui-content">
+	<div class="mui-content-padded" style="margin: 5px;">
+		<form class="mui-input-group form" action="" method="post">
+			
+			<div class="mui-input-row">
+				<label>订阅单位<span style="color:red">*</span></label>
+				
+				<input type="text" name="fcompany" placeholder="请输入订阅单位">
+			</div>
+			<div class="mui-input-row">
+				<label>订阅联系人<span style="color:red">*</span></label>
+				<input type="text" name="fusername" class="mui-input-clear" placeholder="请输入订阅联系人">
+			</div>
+			<div class="mui-input-row">
+				<label>性别<span style="color:red">*</span></label>
+				
+				<span class="radio_inline mui-radio">
+					<input name="fsex" type="radio" id="radio_man" checked value="1">
+					<label for="radio_man">男</label>
+					<input name="fsex" type="radio" id="radio_woman" value="0">     
+					<label for="radio_woman">女</label>        
+				</span>   
+			</div>
+			
+			<div class="mui-input-row">
+				<label>联系电话<span style="color:red">*</span></label>
+				<input type="text" name="fphone" class="mui-input-clear" placeholder="请输入联系电话">
+			</div>
+			<div class="mui-input-row">
+				<label>传真<span style="color:red">*</span></label>
+				<input type="text" name="fax" class="mui-input-clear" placeholder="请输入传真">
+			</div>
+			<div class="mui-input-row">
+				<label>中文订阅数量<span style="color:red">*</span></label>
+				<div class="mui-numbox" data-numbox-min='1'>
+					<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+					<input id="test" name="fcnnum" class="mui-input-numbox" type="number" value="5" />
+					<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+				</div>
+			</div>
+			<div class="mui-input-row">
+				<label>英文订阅数量<span style="color:red">*</span></label>
+				<div class="mui-numbox" data-numbox-min='1'>
+					<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+					<input id="test"  name="fennum" class="mui-input-numbox" type="number" value="5" />
+					<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+				</div>
+			</div>
+			<div class="mui-input-row">
+				<label>邮箱<span style="color:red">*</span></label>
+				<input type="text" name="femail" class="mui-input-clear" placeholder="请输入邮箱">
+			</div>
+			<div class="mui-input-row">
+				<label>邮编<span style="color:red">*</span></label>
+				<input type="text" name="fcode" class="mui-input-clear" placeholder="请输入邮编">
+			</div>
+			<div class="mui-input-row">
+				<label>通信地址<span style="color:red">*</span></label>
+				<input type="text" name="faddress" class="mui-input-clear" placeholder="请输入通信地址">
+			</div>
+			<div class="mui-input-row">
+				<label>是否需要增值税专用发票<span style="color:red">*</span></label>
+				
+				<span class="radio_inline mui-radio">
+					<input name="is_invoice" type="radio" id="is_invoice" value="1">
+					<label for="is_invoice">是</label>
+					<input name="is_invoice" type="radio" id="f_invoice" checked value="0">     
+					<label for="f_invoice">否</label>        
+				</span>   
+				
+			</div>
+			<div class="mui-input-row">
+				<label>开票单位<span style="color:red">*</span></label>
+				<input type="text" name="company" class="mui-input-clear" placeholder="请输入开票单位">
+			</div>
+			<div style="display:none" id="invoice">
+				<div class="mui-input-row">
+					<label>纳税人识别号<span style="color:red">*</span></label>
+					<input type="text"  name="identnum" class="mui-input-clear" placeholder="请输入纳税人识别号">
+				</div>
+				<div class="mui-input-row">
+					<label>注册地址<span style="color:red">*</span></label>
+					<input type="text" name="regaddress"  class="mui-input-clear" placeholder="请输入注册地址">
+				</div>
+				<div class="mui-input-row">
+					<label>注册电话<span style="color:red">*</span></label>
+					<input type="text" name="regphone" class="mui-input-clear" placeholder="请输入注册电话">
+				</div>
+				<div class="mui-input-row">
+					<label>开户银行<span style="color:red">*</span></label>
+					
+					<input type="text" name="bank" class="mui-input-clear" placeholder="请输入开户银行">
+				</div>
+				<div class="mui-input-row">
+					<label>银行账户<span style="color:red">*</span></label>
+					<input type="text" name="bankcard" class="mui-input-clear" placeholder="请输入银行账户">
+				</div>
+			</div>
+			<div class="mui-button-row">
+				<button type="button" class="mui-btn mui-btn-primary sub" onclick="return false;">提交订阅</button>&nbsp;&nbsp;
+				
+			</div>
+			
+		</form>
+	</div>
+</div>
+</body>
+<script src="__HOME__/js/mui.min.js"></script>
+<script src="__HOME__/js/jquery.js"></script>
+ <script src="__HOME__/js/layer/layer.js"></script>
+<script src="__HOME__/js/public.js"></script>
+
+<script>
+	$('#is_invoice').click(function(){
+		$('#invoice').show();
+	})
+	$('#f_invoice').click(function(){
+		$('#invoice').hide();
+	})
+</script>
+</html>

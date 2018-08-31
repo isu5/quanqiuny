@@ -56,9 +56,14 @@
     </tr>
     <tr>
         <td class="tableleft"><font style="color:red">*</font>职位信息</td>
-        <td>
-           <input type="text" name="position" class="control-text span-width span6" datatype="*" nullmsg="请输入职位信息" errormsg="请输入职位信息"/>
+		<td>
+           
+		<div id="editor3">
+            <!-- <p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p> -->
+        </div>
+           <textarea id="text3" name="position" style="display: none" datatype="*" nullmsg="请输入职位信息" errormsg="请输入职位信息"></textarea>
         </td>
+        
     </tr>
     <tr>
         <td class="tableleft">其他信息</td>
@@ -81,7 +86,13 @@
             <textarea name="description"></textarea>
         </td>
     </tr>
-  
+	<tr>
+        <td class="tableleft">其他信息</td>
+        <td>
+           <!-- <input type="text" name="otherinfo" class="control-text span-width span3" datatype="*" nullmsg="请输入其他信息" errormsg="请输入其他信息"/> -->
+           <textarea name="otherinfo"></textarea>
+        </td>
+    </tr>
     
     <tr>
         <td class="tableleft"><font style="color:red">*</font>文章内容</td>
@@ -110,9 +121,11 @@
    var E = window.wangEditor
     var editor = new E('#editor') 
 	var editor2 = new E('#editor2')
+	var editor3 = new E('#editor3')
     // 或者 var editor = new E( document.getElementById('editor') )
     var $text1 = $('#text1')
     var $text2 = $('#text2')
+    var $text3 = $('#text3')
      // 自定义菜单配置
     editor.customConfig.menus = [
         'head',  // 标题
@@ -138,6 +151,7 @@
     // 关闭粘贴样式的过滤
     editor.customConfig.pasteFilterStyle = false;
     editor2.customConfig.pasteFilterStyle = false;
+	editor3.customConfig.pasteFilterStyle = true;
     //开启debug模式
     editor.customConfig.debug = location.href.indexOf('wangeditor_debug_mode=1') > 0;
     // 自定义处理粘贴的文本内容
@@ -163,6 +177,11 @@
         $text2.val(html)
         
     }
+	editor3.customConfig.onchange = function (html) {
+        // 监控变化，同步更新到 textarea
+        $text3.val(html)
+        
+    }
      // 自定义配置颜色（字体颜色、背景色）
     editor.customConfig.colors = [
         '#000000',
@@ -184,6 +203,7 @@
     editor.customConfig.uploadImgServer = "{:url('enarticle/editorUpload')}"  // 上传图片到服务器
     editor.create();
     editor2.create();
+    editor3.create();
    
 
 

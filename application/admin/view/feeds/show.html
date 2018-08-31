@@ -1,0 +1,92 @@
+{extend name="public:base" /}
+{block name="main"}
+<!--处理select下拉，搜索功能-->
+<link rel="stylesheet" href="__ADMIN__/css/style.css">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/frame/select2/select2.css" />
+<script type="text/javascript" src="__ADMIN__/frame/select2/select2.js"></script>
+<script type="text/javascript" src="__ADMIN__/frame/select2/select2_locale_zh-CN.js"></script>
+<!--处理select下拉，搜索功能 结束-->
+<script type="text/javascript" src="__ADMIN__/frame/plupload/plupload.full.min.js"></script>
+
+<form action="{:url()}" method="post" enctype="multipart/form-data">
+<table class="table table-bordered table-hover definewidth m10">
+    <input type="hidden" name='id' value="{:input('param.id')}">
+    <tr>
+        <td width="10%" class="tableleft">订阅单位</td>
+        <td>{$data.fcompany}</td>
+    </tr>
+	<tr>
+        <td width="10%" class="tableleft">订阅联系人</td>
+        <td>{$data.fusername}</td>
+    </tr>
+	<tr>
+        <td width="10%" class="tableleft">性别</td>
+        <td>{eq name="data.fsex" value="0" }男{else/}女{/eq}</td>
+    </tr>
+	<tr>
+        <td width="10%" class="tableleft">联系电话</td>
+        <td>{$data.fphone}</td>
+    </tr>
+	<tr>
+        <td width="10%" class="tableleft">传真</td>
+        <td>{$data.fax}</td>
+    </tr>
+	<tr>
+        <td width="10%" class="tableleft">中文订阅数量</td>
+        <td>{$data.fcnnum}</td>
+    </tr>
+	<tr>
+        <td width="10%" class="tableleft">英文订阅数量</td>
+        <td>{$data.fennum}</td>
+    </tr>
+	<tr>
+        <td width="10%" class="tableleft">邮箱</td>
+        <td>{$data.femail}</td>
+    </tr>
+	<tr>
+        <td width="10%" class="tableleft">邮编</td>
+        <td>{$data.fcode}</td>
+    </tr>
+	<tr>
+        <td width="10%" class="tableleft">通信地址</td>
+        <td>{$data.faddress}</td>
+    </tr>
+	<tr>
+        <td width="10%" class="tableleft">是否开发票</td>
+        <td>{eq name="data.is_invoice" value="0" }否{else/}是{/eq}</td>
+    </tr>
+	<tr>
+        <td width="10%" class="tableleft">开票单位</td>
+        <td>{$data.company}</td>
+    </tr>
+	<tr>
+        <td width="10%" class="tableleft">纳税人识别号</td>
+        <td>{$data.identnum}</td>
+    </tr>
+	<tr>
+        <td width="10%" class="tableleft">注册地址</td>
+        <td>{$data.regaddress}</td>
+    </tr>
+	<tr>
+        <td width="10%" class="tableleft">注册电话</td>
+        <td>{$data.regphone}</td>
+    </tr>
+	<tr>
+        <td width="10%" class="tableleft">开户银行</td>
+        <td>{$data.bank}</td>
+    </tr>
+	<tr>
+        <td width="10%" class="tableleft">银行账户</td>
+        <td>{$data.bankcard}</td>
+    </tr>
+	<tr>
+        <td width="10%" class="tableleft">提交时间</td>
+        <td>{$data.addtime|date="Y-m-d H:i",###}</td>
+    </tr>
+	
+</table>
+{/block}
+{block name="js"}
+
+
+{/block}

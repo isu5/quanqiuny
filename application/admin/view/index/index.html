@@ -27,7 +27,8 @@
       <div class="dl-inform"><div class="dl-inform-title"><s class="dl-inform-icon dl-up"></s></div></div>
       <ul id="J_Nav"  class="nav-list ks-clear">  
     		<li class="nav-item dl-selected"><div class="nav-item-inner nav-home">系统管理</div></li>		
-			   <li class="nav-item dl-selected"><div class="nav-item-inner nav-order">期刊管理</div></li>       
+			<li class="nav-item dl-selected"><div class="nav-item-inner nav-order">期刊管理</div></li>       
+			<li class="nav-item dl-selected"><div class="nav-item-inner nav-order">订阅管理</div></li>       
 
       </ul>
     </div>
@@ -65,7 +66,16 @@
           {id:'enarticle',text:'期刊文章',href:"{:url('Enarticle/index')}"},
           ]
         }]
-		}];
+		},
+		{
+      		id:'feeds',
+			homePage : 'feeds',
+      		menu:[{
+      		text:'订阅管理',
+      		items:[{id:'feeds',text:'订阅信息',href:"{:url('Feeds/index')}"},
+      		]}],
+      		},
+		];
           
       new PageUtil.MainPage({
         modulesConfig : config

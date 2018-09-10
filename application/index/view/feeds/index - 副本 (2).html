@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection" content="telephone=no"/>
+	<link href="__HOME__/css/mzui.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="__HOME__/css/app.css">
+
+<title>订阅系统</title>	
+</head>
+<body class="primary-pale">
+	<header class="text-center">
+		<div class="text-center" id="leadContent">
+			<h1>感谢您订阅</h1>
+			<h1>《全球能源互联网》期刊</h1>
+			<span class="title muted">请尽量完整地填写个人信息，带*号的信息为必填项</span>
+		</div>
+	</header>
+	<div class="container">
+		<form class="form" action="" method="post">
+			
+				<div class="dingyue1">订阅信息</div>
+			
+		    <div class="row">
+				<div class="control row">
+					<label ><span>*</span>订阅单位</label>
+					<div class="cell-1"></div>
+					<div class="cell-10">
+						<input type="text" name="fcompany" class="input" placeholder="请输入订阅单位">
+					</div>
+					<div class="cell-1"></div>
+				</div>
+				<div class="control row">
+				   <label><span>*</span>订阅联系人</label>
+				   <div class="cell-1"></div>
+					<div class="cell-10">
+					<input type="text" name="fusername" class="input" placeholder="请输入订阅联系人">
+					</div>
+					<div class="cell-1"></div>
+				</div>
+				<div class="control row">
+					<div class="cell-6">
+					<label><span>*</span>中文订阅数量</label>
+					<input type="number" name="fcnnum" class="input" placeholder="请输入中文订阅数量">
+					</div>
+					<div class="cell-6">
+					<label>英文订阅数量<span style="color:red">*</span></label>
+					<input type="number" name="fennum" class="input" placeholder="请输入英文订阅数量">
+					</div>
+				</div>
+				
+			</div>
+			<div class="row dingyue2">
+				<div class="control">
+					<label><span>*</span>称呼</label>
+					<div class="radio inline-block">
+						<input type="radio" name="fsex" checked value="1">
+						<label for="payment">先生</label>
+					</div>
+					<div class="radio inline-block">
+						<input type="radio" name="fsex" value="0">
+						<label for="payment">女士</label>
+					</div>
+				</div>
+				<div class="control">
+				   <label>联系电话<span style="color:red">*</span></label>
+					<input type="text" name="fphone" class="input" placeholder="请输入联系电话">
+				</div>
+				<div class="control">
+				   <label>传真<span style="color:red">*</span></label>
+					<input type="text" name="fax" class="input" placeholder="请输入传真">
+				</div>
+				
+				<div class="control">
+					<label>邮箱<span style="color:red">*</span></label>
+					<input type="text" name="femail" class="input" placeholder="请输入邮箱">
+				</div>
+				 <div class="control">
+				   <label>邮编<span style="color:red">*</span></label>
+					<input type="email" name="fcode" class="input" placeholder="请输入邮编">
+				</div>
+				<div class="control">
+				  <label>通信地址<span style="color:red">*</span></label>
+					<input type="text" name="faddress" class="input" placeholder="请输入通信地址">
+				</div>
+		    </div>
+			<div class="row dingyue3">
+				 <div class="control">
+				 <label>是否需要增值税专用发票<span style="color:red">*</span></label>
+					
+					<div class="radio inline-block">
+						<input name="is_invoice" type="radio" id="is_invoice" value="1">
+						<label for="is_invoice">是</label>
+					</div>
+					<div class="radio inline-block">
+						<input name="is_invoice" type="radio" id="f_invoice" checked value="0"> 
+						<label for="f_invoice">否</label>
+					</div>
+				</div>
+				<div class="control">
+					<label>开票单位<span style="color:red">*</span></label>
+					<input type="text" name="company" class="input" placeholder="请输入开票单位">
+				</div>
+				
+				<div style="display:none; width: 100%" id="invoice">
+					<div class="control">
+						<label>纳税人识别号<span style="color:red">*</span></label>
+							<input type="text"  name="identnum" class="input" required="required" placeholder="请输入纳税人识别号">
+					</div>
+					 <div class="control">
+						<label>注册地址<span style="color:red">*</span></label>
+							<input type="text" name="regaddress"  class="input" required="required" placeholder="请输入注册地址">
+					</div>
+					<div class="control">
+						<label>注册电话<span style="color:red">*</span></label>
+							<input type="text" name="regphone" class="input" required="required" placeholder="请输入注册电话">
+					</div>
+					<div class="control">
+						<label>开户银行<span style="color:red">*</span></label>
+						<input type="text" name="bank" class="input" placeholder="请输入开户银行" required="required">
+					</div>
+					 <div class="control">
+						<label>银行账户<span style="color:red">*</span></label>
+						<input type="text" name="bankcard" class="input" placeholder="请输入银行账户" required="required">
+					</div>
+				</div>
+		    </div>
+		
+			<p></p>
+		    <div class="control text-center">
+		    	<button type="button" class="btn btn-lg primary sub" >提交订阅</button>
+		    </div>
+   		</form>
+	</div>
+ 	
+
+
+
+
+ <!-- MZUI 的 JavaScript 插件依赖 jQuery，请使用 jQuery 最新版本 -->
+	<script src="__HOME__/js/jquery.js"></script>
+    <!-- 引入 MZUI 的 JS 文件 -->
+    <script src="__HOME__/js/mzui.min.js"></script>
+	<script src="__HOME__/js/layer/layer.js"></script>
+	<script src="__HOME__/js/public.js"></script>
+    <script>
+	$('#is_invoice').click(function(){
+		$('#invoice').show();
+	})
+	$('#f_invoice').click(function(){
+		//alert(1)
+		$('#invoice').hide();
+	})
+</script>
+</body>
+</html>

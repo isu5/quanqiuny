@@ -42,11 +42,10 @@ p{
     min-height: 15rem;
     
 }
-.banner_art .banner_left{
-	padding: 2rem 0 2rem 2rem;
-	background: url(../images/banneren.jpg) no-repeat right bottom;
+.banner_art .banner_left img{
+	
     background-size: cover;
-	width: 23%;
+	
     height: 11rem;
     float: left;
     margin: 1rem 0 0 2rem;
@@ -64,7 +63,7 @@ p{
 .banner_art .banner_right p{
 	color:#0D74BF;
 	text-align: left;
-	margin: -5rem 0;
+	margin: -7rem 0;
     padding: 0 0 0 1rem;
 }
 .banner_art .banner_right p span{
@@ -239,7 +238,7 @@ a.bars {
     	line-height: 5rem;
 	}
 	.banner{
-		padding: 3.5rem 0 0;
+		padding: 5.5rem 0 0;
 		font-size: 12px;
 	}
 	.banner span{padding-left:3rem}

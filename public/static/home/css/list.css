@@ -1,6 +1,7 @@
 
 html, body {
-    background: url(../images/bg_img.png) no-repeat fixed center center /cover;
+   /*  background: url(../images/bg_img.png) no-repeat fixed center center /cover; */
+    background: #337AB7 fixed center center /cover;
 }
 .list {
     padding: 1rem 1rem 4rem 0;

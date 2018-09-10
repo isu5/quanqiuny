@@ -30,7 +30,7 @@
             <td>{$v.id}</td>
             <td>{$v.fcompany}</td>
             <td>{$v.fusername}</td>
-            <td>{eq name="v.fsex" value="0" }男{else/}女{/eq}</td>
+            <td>{eq name="v.fsex" value="1" }男{else/}女{/eq}</td>
 			 <td>{$v.fphone}</td>
 			 <td>{$v.addtime|date="Y-m-d H:i",###}</td>
 			 <td><a href="{:url('Feeds/show',['id'=>$v['id']])}">查看详情</a></td>

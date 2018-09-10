@@ -38,7 +38,7 @@ class Enarticle extends Controller{
 		}
     	$this->assign([
 			'cateTop'=>$cateTop,
-			'cate' => $cate['catealias']
+			'cate' => $cate['cateasname']
 		]);
         return view();
 

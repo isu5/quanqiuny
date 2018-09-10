@@ -1,0 +1,35 @@
+@charset=utf-8;
+body{box-sizing:border-box;}
+label{width:100%;background: #ebeffa;}
+.container{
+	background:#ebeffa;
+	box-sizing:border-box; 
+}
+.btn-lg{min-width:10rem}
+.control>label {font-size:0.76rem;padding:0rem 2rem;background: #ebeffa;width:100%}
+.checkbox>input+label, .radio>input+label{padding:.25rem 0 .25rem 1rem}
+#leadContent{
+	padding:1.5rem;
+	background:#ebeffa
+}
+#leadContent h1{color:#007AC1}
+.dingyue1{
+	color:#ffffff;
+	font-size:0.8rem;
+	font-weight:700;
+	line-height:1.8rem;
+	background:#99BDDF;
+	padding:0 0 0 1.6rem;
+	
+	
+}
+.control:not(:last-child){
+	margin-bottom:.2rem
+}
+
+.form .dingyue2{
+	margin:1rem 0;
+}
+.form .primary{
+	background:#007CC2
+}

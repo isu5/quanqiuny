@@ -1,16 +1,17 @@
 @charset=utf-8;
 body{box-sizing:border-box;}
-label{width:100%;background: #ebeffa;}
-.container{
-	background:#ebeffa;
+label{width:100%;background: #EBEFFA;}
+.dingyue{
+	background:#EBEFFA;
 	box-sizing:border-box; 
 }
 .btn-lg{min-width:10rem}
-.control>label {font-size:0.76rem;padding:0rem 2rem;background: #ebeffa;width:100%}
+
+.control>label {font-size:0.76rem;padding:0rem 2rem}
 .checkbox>input+label, .radio>input+label{padding:.25rem 0 .25rem 1rem}
 #leadContent{
 	padding:1.5rem;
-	background:#ebeffa
+	background:#EBEFFA
 }
 #leadContent h1{color:#007AC1}
 .dingyue1{

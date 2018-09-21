@@ -44,10 +44,13 @@
     BUI.use('common/main',function(){
       var config = [{
       		id:'config',
-			homePage : 'admin',
+			homePage : 'home',
       		menu:[{
       		text:'管理员管理',
-      		items:[{id:'admin',text:'修改信息',href:"{:url('Admin/index')}"},
+      		items:[
+			{id:'home',text:'欢迎页',href:"{:url('Index/home')}"},
+			{id:'admin',text:'修改信息',href:"{:url('Admin/index')}"},
+			
       		]}],
       		},
          

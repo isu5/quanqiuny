@@ -11,12 +11,20 @@
 
 <title>订阅系统</title>	
 </head>
-<body>
+<body class="primary-pale">
 	<header class="text-center">
 		<div class="text-center" id="leadContent">
 			<h1>感谢您订阅</h1>
+			<!-- 
 			<h1>《全球能源互联网》期刊</h1>
+			-->
+			<small  class="title muted"  >《全球能源互联网》中文期刊（刊号：CN10-1550/TK ISSN2096-5125）全年定价396元（6期）<br>《全球能源互联网》英文期刊（刊号：CN10-1551/TK ISSN2096-5117）全年定价360元（6期）<br>请完整填写以下信息</small>
+			<!-- 
+			<small class="title muted" style="text-align:left;display:block">《全球能源互联网》英文期刊（刊号：CN10-1551/TK ISSN2096-5117）请完整填写以下信息</small>
+			-->
+			<!-- 
 			<small class="title muted">请尽量完整地填写个人信息，带*号的信息为必填项</small>
+			-->
 		</div>
 	</header>
 	<div class="container">
@@ -26,7 +34,7 @@
 			</div>
 		    <div class="row dingyue2">
 				<div class="control row">
-					<label ><span>*</span>订阅单位</label>
+					<label ><span></span>订阅单位</label>
 					<div class="cell"></div>
 					<div class="cell-10">
 						<input type="text" name="fcompany" class="input" placeholder="请输入订阅单位">
@@ -34,7 +42,7 @@
 					<div class="cell"></div>
 				</div>
 				<div class="control row">
-				   <label><span>*</span>订阅联系人</label>
+				   <label><span></span>订阅联系人</label>
 				   <div class="cell-1"></div>
 					<div class="cell-10">
 					<input type="text" name="fusername" class="input" placeholder="请输入订阅联系人">
@@ -42,18 +50,18 @@
 					<div class="cell-1"></div>
 				</div>
 				<div class="control row">
-					<label><span>*</span>中文订阅数量</label>
+					<label><span></span>中文订阅数量</label>
 					 <div class="cell-1"></div>
 					<div class="cell-6">
-					<input type="number" name="fcnnum" class="input" placeholder="请输入中文订阅数量">
+					<input type="number" min="1" name="fcnnum"   class="input" placeholder="请输入中文订阅数量">
 					</div>
 					<div class="cell-5"></div>
 				</div>
 				<div class="control row">
-					<label><span>*</span>英文订阅数量</label>
+					<label><span></span>英文订阅数量</label>
 					 <div class="cell-1"></div>
 					<div class="cell-6">
-					<input type="number" name="fennum" class="input" placeholder="请输入英文订阅数量">
+					<input type="number"  min="1" name="fennum" class="input" placeholder="请输入英文订阅数量">
 					</div>
 					<div class="cell-5"></div>
 				</div>					
@@ -65,7 +73,7 @@
 			<div class="dingyue2">
 				<div class="control row">
 					<div class="radio inline-block" style="padding-top:0.2rem">
-						<label style="padding:0 2rem;font-size:0.76rem"><span>*</span>称呼</label>
+						<label style="padding:0 2rem;font-size:0.76rem"><span></span>称呼</label>
 					</div>
 					<div class="radio inline-block">
 						<input type="radio" name="fsex" checked value="1">
@@ -81,42 +89,48 @@
 				</div>
 				
 				<div class="control row">
-					<label><span>*</span>电话</label>
+					<label><span></span>电话</label>
 					 <div class="cell-1"></div>
 					<div class="cell-6">
-					<input type="number" name="fphone" class="input" placeholder="请输入联系电话">
+					<input type="number" min="1" name="fphone" class="input" placeholder="例：01066666666">
+					<!-- 
+					<input type="number" min="0" name="fphone" class="input" placeholder="请输入联系电话">
+					-->
 					</div>
 					<div class="cell-5"></div>
 				</div>	
 				<div class="control row">
-					<label><span>*</span>传真</label>
+					<label><span></span>传真</label>
 					 <div class="cell-1"></div>
 					<div class="cell-6">
-					<input type="number" name="fax" class="input" placeholder="请输入联系电话">
+					<input type="number" min="1" name="fax" class="input" placeholder="例：01066666666">
+					<!-- 
+					<input type="number" min="0" name="fax" class="input" placeholder="请输入传真">
+					-->
 					</div>
 					<div class="cell-5"></div>
 				</div>	
 				<div class="control row">
-					<label><span>*</span>邮箱</label>
+					<label><span></span>邮箱</label>
 					 <div class="cell-1"></div>
 					<div class="cell-6">
-					<input type="email" name="femail" class="input" placeholder="请输入邮箱">
+					<input type="email" name="femail" class="input" placeholder="例：xxxxxxx@geidco.org">
 					</div>
 					<div class="cell-5"></div>
 				</div>
 				<div class="control row">
-					<label><span>*</span>通信地址</label>
+					<label><span></span>通信地址</label>
 					<div class="cell-1"></div>
 					<div class="cell-10">
-					<input type="text" name="faddress" class="input" placeholder="请输入通信地址">
+					<input type="text" name="faddress" class="input" placeholder="请输入正确的通信地址">
 					</div>
 					<div class="cell-1"></div>
 				</div>
 				 <div class="control row">
-				   <label><span>*</span>邮编</label>
+				   <label><span></span>邮编</label>
 				    <div class="cell-1"></div>
 					<div class="cell-6">
-					<input type="number" name="fcode" class="input" placeholder="请输入邮编">
+					<input type="number" min="0" name="fcode" class="input" placeholder="请输入正确的邮编">
 					</div>
 					<div class="cell-5"></div>
 				</div>
@@ -127,7 +141,7 @@
 			<div class="dingyue2">
 				 <div class="control row">
 					<div class="radio inline-block" style="padding-top:0.2rem">
-						<label style="padding:0 2rem;font-size:0.76rem"><span>*</span>是否需要增值税专用发票</label>
+						<label style="padding:0 2rem;font-size:0.76rem"><span></span>是否需要增值税专用发票</label>
 					</div>
 						<div class="radio inline-block">
 							<input name="is_invoice" type="radio" id="is_invoice" value="1">
@@ -143,7 +157,7 @@
 					
 				</div>
 				<div class="control row">
-					<label><span>*</span>开票单位</label>
+					<label><span></span>开票单位</label>
 					<div class="cell-1"></div>
 					<div class="cell-10">
 					<input type="text" name="company" class="input" placeholder="请输入开票单位">
@@ -154,7 +168,7 @@
 				
 				<div style="display:none; width: 100%" id="invoice">
 					<div class="control row">
-						<label><span>*</span>纳税人识别号</label>
+						<label><span></span>纳税人识别号</label>
 						<div class="cell-1"></div>
 						<div class="cell-10">
 						<input type="text"  name="identnum" class="input" required="required" placeholder="请输入纳税人识别号">
@@ -162,7 +176,7 @@
 						<div class="cell-1"></div>
 					</div>
 					 <div class="control row">
-						<label><span>*</span>注册地址</label>
+						<label><span></span>注册地址</label>
 						<div class="cell-1"></div>
 						<div class="cell-10">
 						<input type="text" name="regaddress"  class="input" required="required" placeholder="请输入注册地址">
@@ -171,15 +185,15 @@
 						
 					</div>
 					<div class="control row">
-						<label><span>*</span>注册电话</label>
+						<label><span></span>注册电话</label>
 						<div class="cell-1"></div>
 						<div class="cell-10">
-						<input type="number" name="regphone" class="input" required="required" placeholder="请输入注册电话">
+						<input type="number" min="1" name="regphone" class="input" required="required" placeholder="请输入注册电话">
 						</div>
 						<div class="cell-1"></div>
 					</div>
 					<div class="control row">
-						<label><span>*</span>开户银行</label>
+						<label><span></span>开户银行</label>
 						<div class="cell-1"></div>
 						<div class="cell-10">
 						<input type="text" name="bank" class="input" placeholder="请输入开户银行" required="required">
@@ -187,10 +201,10 @@
 						<div class="cell-1"></div>
 					</div>
 					 <div class="control row">
-						<label><span>*</span>银行账户</label>
+						<label><span></span>银行账户</label>
 						<div class="cell-1"></div>
 						<div class="cell-10">
-						<input type="number" name="bankcard" class="input" placeholder="请输入银行账户" required="required">
+						<input type="number" min="1" name="bankcard" class="input" placeholder="请输入银行账户" required="required">
 						</div>
 						<div class="cell-1"></div>
 					</div>
@@ -199,7 +213,7 @@
 		
 			<p></p>
 		    <div class="control text-center">
-		    	<button type="button" class="btn btn-lg primary circle sub" style="text-align:center">提交订阅</button>
+		    	<button  type="button" class="btn btn-lg primary circle sub" style="text-align:center" >提交订阅</button>
 		    </div>
 			<div class="cell"></div>
    		</form>

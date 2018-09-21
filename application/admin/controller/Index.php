@@ -12,6 +12,12 @@ class Index extends Common
 		$host = 'http://'.$_SERVER['HTTP_HOST'];
 		
 		//dump($host);
+		
         return $this->fetch();
     }
+	
+	//欢迎页
+	public function home(){
+		 return $this->fetch();
+	}
 }

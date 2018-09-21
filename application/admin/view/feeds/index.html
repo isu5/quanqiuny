@@ -1,19 +1,34 @@
 {extend name="public:base"}
 {block name="main"}
-<!-- <form class="form-inline definewidth m20" action="index.html" method="get">    
-    文章标题：
-    <input type="text" name="title" id="title" class="abc input-default" placeholder="" value="{:input('get.title')}">&nbsp;&nbsp;  
-    <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp;
-   
-</form> -->
+<form class="form-inline definewidth m20" action="" method="get">    
+    
+   <!-- 文章标题： <input type="text" name="title" id="title" class="abc input-default" placeholder="" value="{:input('get.title')}">&nbsp;&nbsp;  
+    <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp; -->
+	<select name="is_invoice">
+		<option value="2" {if condition="$is_invoice eq 2"}selected="selected"{/if}>导出全部数据</option>
+		<option value="0" {if condition="$is_invoice eq 0"}selected="selected"{/if}>导出不开专票数据</option>
+		<option value="1" {if condition="$is_invoice eq 1"}selected="selected"{/if}>导出开专票数据</option>
+	</select>
+	<button type="submit" class="btn btn-primary">查询</button>
+</form>
+<div class="form-inline definewidth m20">
+	{if condition="$is_invoice eq 2"}
+	<a href="{:url('Feeds/dataexcle')}" class="btn">导出全部数据</a>
+	{elseif condition="$is_invoice eq 0" /}
+	<a href="{:url('Feeds/noexcle',['is_invoice'=>0])}" class="btn">导出不开专票数据</a>
+	{elseif condition="$is_invoice eq 1" /}
+		<a href="{:url('Feeds/kaiexcle',['is_invoice'=>1])}" class="btn">导出开专票数据</a>
+	{/if}
+</div>
 <table class="table table-bordered table-hover definewidth m10">
     <thead>
     <tr>
         <th width="5%">id</th>
         <th>订阅单位</th>
         <th>订阅联系人</th>
-        <th>性别</th>
+        <th>称呼</th>
         <th>联系电话</th>
+        <th>是否开专票</th>
         <th>提交时间</th>
         <th>操作</th>
     </tr>
@@ -25,15 +40,20 @@
             </td>
         </tr>
         {else /}
+		
         {volist name="data" id="v"}
 	     <tr>
             <td>{$v.id}</td>
             <td>{$v.fcompany}</td>
             <td>{$v.fusername}</td>
-            <td>{eq name="v.fsex" value="1" }男{else/}女{/eq}</td>
-			 <td>{$v.fphone}</td>
-			 <td>{$v.addtime|date="Y-m-d H:i",###}</td>
-			 <td><a href="{:url('Feeds/show',['id'=>$v['id']])}">查看详情</a></td>
+            <td>{eq name="v.fsex" value="1" }先生{else/}女士{/eq}</td>
+			<td>{$v.fphone}</td>
+            <td>{eq name="v.is_invoice" value="1" }是{else/}否{/eq}</td>
+			 <td>{$v.addtime}</td>
+			 <td>
+				<a href="{:url('Feeds/show',['id'=>$v['id']])}">查看</a>
+				<a href="javascript:void(0);" onclick="del(this,{$v['id']})">删除</a>
+			 </td>
         </tr>
         {/volist}
         {/empty}
@@ -41,7 +61,7 @@
 
 <div class="inline pull-right page">
     <!--分页-->
-   
+	{$page}
 </div>
 
 {/block}
@@ -61,7 +81,7 @@
         shade: [0.4, '#393D49']
     },function(){
         //此处请求后台程序，下方是成功后的前台处理……
-        $.get("{:url('Article/delete')}", { "id": id },function(data){
+        $.get("{:url('Feeds/delete')}", { "id": id },function(data){
             if(data.valid==1){
                 layer.msg(data.msg, { icon: 1, time: 2000 ,shade: 0.5},function(index){
                     $(obj).parents("tr").remove();

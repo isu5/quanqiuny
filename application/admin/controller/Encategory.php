@@ -75,7 +75,7 @@ class Encategory extends Common{
          if ($pid['pid'] == 0) {
             return json(['valid'=>2,'msg'=>'该栏目为顶级栏目不允许删除！']);
          }
-         if(CategoryModel::destroy($id)){
+         if(EncategoryModel::destroy($id)){
             return json(['valid'=>1,'msg'=>'删除成功']);
          }else{
             return json(['valid'=>0,'msg'=>'删除失败']);

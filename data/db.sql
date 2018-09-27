@@ -71,6 +71,16 @@ bankcard int(50) not null default 0 comment '银行账户',
 addtime int not null comment '提交时间'
 )engine=Innodb charset=utf8 comment '订阅表';
 
+----文件存储
+create table qq_files(
+id int unsigned primary key auto_increment,
+filename varchar(100) not null default '' comment '文件名称',
+fiiepath varchar(200) not null default '' comment '文件路径',
+filesize varchar(20) not null default '' comment '文件大小',
+fileext varchar(10) not null default '' comment '文件扩展名',
+addtime int not null comment '上传时间'
+)engine=Innodb charset=utf8 comment '文件存储';
+
 
 
 

@@ -28,8 +28,8 @@
       <ul id="J_Nav"  class="nav-list ks-clear">  
     		<li class="nav-item dl-selected"><div class="nav-item-inner nav-home">系统管理</div></li>		
 			<li class="nav-item dl-selected"><div class="nav-item-inner nav-order">期刊管理</div></li>       
-			<li class="nav-item dl-selected"><div class="nav-item-inner nav-order">订阅管理</div></li>       
-
+			<li class="nav-item dl-selected"><div class="nav-item-inner nav-order">订阅管理</div></li>
+      <li class="nav-item dl-selected"><div class="nav-item-inner nav-order">文件存储</div></li>
       </ul>
     </div>
     <ul id="J_NavContent" class="dl-tab-conten">
@@ -78,7 +78,15 @@
       		items:[{id:'feeds',text:'订阅信息',href:"{:url('Feeds/index')}"},
       		]}],
       		},
-		];
+		{
+          id:'files',
+      homePage : 'index',
+          menu:[{
+          text:'文件存储',
+          items:[{id:'index',text:'文件列表',href:"{:url('Files/index')}"},
+          ]}],
+          },
+    ];
           
       new PageUtil.MainPage({
         modulesConfig : config

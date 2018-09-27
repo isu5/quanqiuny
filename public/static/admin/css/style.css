@@ -385,3 +385,23 @@ table.dataTable thead .sorting,table.dataTable thead .sorting_desc,table.dataTab
     
 }
 
+/**plupload 图片上传样式 **/
+.pluploadbtn{
+-webkit-border-radius:3px;-moz-border-radius:3px;-ms-border-radius:3px;-o-border-radius:3px;border-radius:3px;
+background-color: #0073CC;color: #fff;display: inline-block;height: 28px;line-height: 28px;text-align: center;width: 72px;
+transition: background-color 0.2s linear 0s;border:none;cursor:pointer;margin:0 0 20px;}
+
+.pluploadbtn:hover{background-color: #e95a00;text-decoration: none;color:#fff;}
+.ul_pics{margin-top:10px;margin-left:-35px;}
+.ul_pics li{float:left;width:160px;height:160px;border:1px solid #ddd;padding:2px;text-align: center;margin:0 5px 5px 100px;list-style:none;}
+.ul_pics li .img{width: 150px;height: 140px;display: table-cell;vertical-align: middle;position:relative;}
+.ul_pics li img{max-width: 150px;max-height: 140px;vertical-align: middle;}
+.progress{position:relative;padding: 1px; border-radius:3px; margin:60px 0 0 0;} 
+.bar {background-color: green; display:block; width:0%; height:20px; border-radius:3px; } 
+.percent{position:absolute; height:20px; display:inline-block;top:3px; left:2%; color:#fff } 
+.span_del{display:block;height:16px;width:16px;position:absolute;top:5px;right:5px;cursor:pointer;
+background:url(/static/admin/image/plupload/local_upload_close.png) no-repeat;display:none;}
+input,button,submit,textarea,option,textarea{font-family:'微软雅黑';}
+.baocun{cursor:pointer;}
+.clear{clear:both;}
+

@@ -1,0 +1,83 @@
+{extend name="public:base"}
+{block name="main"}
+<form class="form-inline definewidth m20" action="index.html" method="get">    
+    <!-- 用户名称：
+    <input type="text" name="username" id="username" class="abc input-default" placeholder="" value="">&nbsp;&nbsp;  
+    <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp; -->
+    <button type="button" class="btn btn-success" id="addnew">新增文件</button>
+</form>
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+    <tr>
+        <th width="5%">id</th>
+        <th>文件名称</th>
+        <th>文件路径</th>
+        <th>文件大小</th>
+        <th>文件类型</th>
+        <th>提交时间</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+        {empty name="data"}
+        <tr class="error">
+            <td colspan="8">
+            没有数据
+            </td>
+        </tr>
+        {else /}
+		
+        {volist name="data" id="v"}
+	     <tr>
+            <td>{$v.id}</td>
+            <td>{$v.filename}</td>
+            <td>{$v.filepath}</td>
+            <td>{$v.filesize}</td>
+            <td>{$v.fileext}</td>
+            <td>{$v.addtime|date="Y-m-d H:i",###}</td>
+            <td>
+            <a href="javascript:void(0);" onclick="del(this,{$v['id']})">删除</a>
+            </td>
+        </tr>
+        {/volist}
+        {/empty}
+</table>
+
+<div class="inline pull-right page">
+    <!--分页-->
+	{$page}
+</div>
+
+{/block}
+{block name="js"}
+<script>
+    $(function () {
+		$('#addnew').click(function(){
+				window.location.href="{:url('Files/add')}";
+		});
+        
+    });
+    function del(obj,id){
+    layer.confirm('确认要删除吗？',{
+        icon: 3,
+        title: '提示信息',
+        btn: ['是的','取消'], //按钮
+        shade: [0.4, '#393D49']
+    },function(){
+        //此处请求后台程序，下方是成功后的前台处理……
+        $.get("{:url('Files/delete')}", { "id": id },function(data){
+            if(data.valid==1){
+                layer.msg(data.msg, { icon: 1, time: 2000 ,shade: 0.5},function(index){
+                    $(obj).parents("tr").remove();
+                });
+            }else{
+                layer.msg(data.msg, {icon: 2, time: 2000,shade: 0.5 }); 
+            }
+             
+        }, "json");
+        
+    });
+}
+
+	
+</script>
+{/block}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection" content="telephone=no"/>
+	<link href="__HOME__/css/mzui.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="__HOME__/css/app.css">
+	<script type="text/javascript" src="//at.alicdn.com/t/font_857220_kpjgxcxbro.js"></script>
+	
+<title>文件</title>	
+</head>
+<body class="primary-pale">
+	<div class="container">
+		<div class="list space">
+				<a class="item with-avatar multi-lines" href="{:url('Files/download',['id'=>$data['id']])}">
+				  <div class="avatar ">
+				  {switch name="data.fileext" }
+					{case value="gif|png|jpg|jpeg|JPG|JPEG|PNG|GIF"}
+						<div class="avatar ">
+						<svg class="icon" aria-hidden="true">
+						  <use xlink:href="#icon-tupian"></use>
+						</svg>
+						</div>
+					{/case}
+					{case value="doc|docx"}
+					<div class="avatar ">
+						<svg class="icon" aria-hidden="true">
+						  <use xlink:href="#icon-word"></use>
+						</svg>
+					</div>
+					{/case}
+					{case value="xls|xlsx"}
+					<div class="avatar ">
+						<svg class="icon" aria-hidden="true">
+						  <use xlink:href="#icon-excle-file"></use>
+						</svg>
+					</div>
+					{/case}
+					{case value="ppt|pptx"}
+					<div class="avatar ">
+						<svg class="icon" aria-hidden="true">
+						  <use xlink:href="#icon-ppt"></use>
+						</svg>
+					</div>
+					{/case}
+					{case value="pdf"}
+					<div class="avatar ">
+						<svg class="icon" aria-hidden="true">
+						  <use xlink:href="#icon-pdf"></use>
+						</svg>
+					</div>
+					{/case}
+					{case value="txt"}
+					<div class="avatar ">
+						<svg class="icon" aria-hidden="true">
+							  <use xlink:href="#icon-txt"></use>
+						</svg>
+					</div>
+					{/case}
+					{case value="zip|rar"}
+					<div class="avatar ">
+						<svg class="icon" aria-hidden="true">
+							  <use xlink:href="#icon-file_zip"></use>
+						</svg>
+					</div>
+					{/case}
+					{/switch}
+				  
+				</div>
+				  <div class="content">
+					<div class="title">{$data.filename}</div>
+					<div class="subtitle">{$data.addtime|date="Y-m-d H:i:s",###}</div>
+				  </div>
+				  <div class="btn blue">下载</div>
+				</a>
+
+			
+		</div>
+		
+	</div>
+ 	
+
+
+
+
+ <!-- MZUI 的 JavaScript 插件依赖 jQuery，请使用 jQuery 最新版本 -->
+	<script src="__HOME__/js/jquery.js"></script>
+    <!-- 引入 MZUI 的 JS 文件 -->
+    <script src="__HOME__/js/mzui.min.js"></script>
+	<script src="__HOME__/js/layer/layer.js"></script>
+	<script src="__HOME__/js/public.js"></script>
+    <script>
+	$('#is_invoice').click(function(){
+		$('#invoice').show();
+	})
+	$('#f_invoice').click(function(){
+		//alert(1)
+		$('#invoice').hide();
+	})
+</script>
+</body>
+</html>

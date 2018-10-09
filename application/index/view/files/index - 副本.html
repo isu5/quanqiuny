@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection" content="telephone=no"/>
+	<link href="__HOME__/css/mzui.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="__HOME__/css/app.css">
+
+<title>文件</title>	
+</head>
+<body class="primary-pale">
+	<div class="container">
+		<div class="list">
+		{volist name="data" id="v"}
+			<div class="item">
+				
+				<div class="avatar circle"><img src="doc/img/avatar.png" alt=""></div>
+				<div class="title">{$v.filename}</div>
+				<a class="btn text-primary" href="{:url('files/show',['id'=>$v['id']])}">查看&nbsp;<i class="icon-chevron-right"></i></a>
+
+			</div>
+		{/volist}
+		</div>
+		
+	</div>
+ 	
+
+
+
+
+ <!-- MZUI 的 JavaScript 插件依赖 jQuery，请使用 jQuery 最新版本 -->
+	<script src="__HOME__/js/jquery.js"></script>
+    <!-- 引入 MZUI 的 JS 文件 -->
+    <script src="__HOME__/js/mzui.min.js"></script>
+	<script src="__HOME__/js/layer/layer.js"></script>
+	<script src="__HOME__/js/public.js"></script>
+    <script>
+	$('#is_invoice').click(function(){
+		$('#invoice').show();
+	})
+	$('#f_invoice').click(function(){
+		//alert(1)
+		$('#invoice').hide();
+	})
+</script>
+</body>
+</html>

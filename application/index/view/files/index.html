@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection" content="telephone=no"/>
+	<link href="__HOME__/css/mzui.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="__HOME__/css/app.css">
+	<script type="text/javascript" src="//at.alicdn.com/t/font_857220_kpjgxcxbro.js"></script>
+	
+</head>
+<body>
+
+<div class="container">
+	<div class="list">
+		{volist name="data" id="v"}
+			<div class="item">
+			{switch name="v.fileext" }
+			{case value="gif|png|jpg|jpeg|JPG|JPEG|PNG|GIF"}
+				<div class="avatar ">
+				<svg class="icon" aria-hidden="true">
+				  <use xlink:href="#icon-tupian"></use>
+				</svg>
+				</div>
+			{/case}
+			{case value="doc|docx"}
+			<div class="avatar ">
+				<svg class="icon" aria-hidden="true">
+				  <use xlink:href="#icon-word"></use>
+				</svg>
+			</div>
+			{/case}
+			{case value="xls|xlsx"}
+			<div class="avatar ">
+				<svg class="icon" aria-hidden="true">
+				  <use xlink:href="#icon-excle-file"></use>
+				</svg>
+			</div>
+			{/case}
+			{case value="ppt|pptx"}
+			<div class="avatar ">
+				<svg class="icon" aria-hidden="true">
+				  <use xlink:href="#icon-ppt"></use>
+				</svg>
+			</div>
+			{/case}
+			{case value="pdf"}
+			<div class="avatar ">
+				<svg class="icon" aria-hidden="true">
+				  <use xlink:href="#icon-pdf"></use>
+				</svg>
+			</div>
+			{/case}
+			{case value="txt"}
+			<div class="avatar ">
+				<svg class="icon" aria-hidden="true">
+					  <use xlink:href="#icon-txt"></use>
+				</svg>
+			</div>
+			{/case}
+			{case value="zip|rar"}
+			<div class="avatar ">
+				<svg class="icon" aria-hidden="true">
+					  <use xlink:href="#icon-file_zip"></use>
+				</svg>
+			</div>
+			{/case}
+			{/switch}
+				<div class="title">{$v.filename}</div>
+				<a class="btn text-primary" href="{:url('files/show',['id'=>$v['id']])}">查看&nbsp;<i class="icon-chevron-right"></i></a>
+			</div>
+		{/volist}
+	</div>
+	
+</div>
+</body>
+</html>

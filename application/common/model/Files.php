@@ -32,4 +32,10 @@ class Files extends Model
     	$data['page'] = $data['list']->render();
     	return $data;
     }
+	
+	//获取单条数据
+	public function getOne($id){
+		
+		return Files::get($id);
+	}
 }

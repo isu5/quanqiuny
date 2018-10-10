@@ -24,6 +24,19 @@ class Files extends Common{
     	return view();
     }	
 
+    //获取单条数据
+    public function show(){
+        $id = input('param.id');
+        $data = $this->db->getOne($id);
+        $this->assign('data',$data);
+        return view();
+    }
+
+    //生成二维码
+    public function sccode($id){
+        scQRcode($id);
+    }
+
     /**
      * [add description]添加方法
      */
@@ -70,12 +83,15 @@ class Files extends Common{
 
         if($file){
             // 移动到框架应用根目录/public/uploads/ 目录下
-            $info = $file->move(ROOT_PATH . 'public' . DS . 'uploads');
-            $path = DS.'uploads'.DS.$info->getSaveName();
+            $date = date('Ymd',time());
+            $info = $file->move(ROOT_PATH . 'public' . DS . 'uploads'.DS. $date .DS,'');
+            
+            $path = DS.'uploads'.DS. $date.DS. $info->getSaveName();
+            $name = $info->getSaveName();
             $filesize = $info->getSize();
             $fileext = $info->getExtension();
             if($info){
-                 return json(['state'=>1,'path'=>$path,'filesize'=>$filesize,'fileext'=>$fileext]);
+                 return json(['state'=>1,'path'=>$path,'filesize'=>$filesize,'fileext'=>$fileext,'name'=>$name]);
             }else{
                 // 上传失败获取错误信息
                  return json(['state'=>0,'errmsg'=>'上传失败']);

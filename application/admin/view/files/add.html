@@ -92,7 +92,12 @@
               FileUploaded: function(up, file, info) { 
                  var data = eval("(" + info.response + ")");
 				 console.log(data);
-                  $("#" + file.id).html("<div class='img'><img  src='" + data.path + "'/><span class='span_del'></span></div><input type='hidden' name='filesize' value='"+ data.filesize+"' /><input type='hidden' name='fileext' value='"+ data.fileext+"'/>");
+                  if (data.fileext=='jpeg' || data.fileext=='jpg' || data.fileext=='png' ||  data.fileext=='gif') {
+                     $("#" + file.id).html("<div class='img'><img  src='" + data.path + "'/><span class='span_del'></span></div><input type='hidden' name='filesize' value='"+ data.filesize+"' /><input type='hidden' name='fileext' value='"+ data.fileext+"'/>");
+                   }else{
+                     $("#" + file.id).html("<div class=''><a href='" + data.path + "'>"+data.name+"</a><span class='span_del'></span></div><input type='hidden' name='filesize' value='"+ data.filesize+"' /><input type='hidden' name='fileext' value='"+ data.fileext+"'/>");
+                   }
+                 
                   var old=$("#multimage").val();
 				$("#multimage").val(old + data.path);
               },

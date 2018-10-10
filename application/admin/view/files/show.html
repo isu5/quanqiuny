@@ -1,0 +1,41 @@
+{extend name="public:base" /}
+{block name="main"}
+<!--处理select下拉，搜索功能-->
+<link rel="stylesheet" href="__ADMIN__/css/style.css">
+<link rel="stylesheet" type="text/css" href="__ADMIN__/frame/select2/select2.css" />
+<script type="text/javascript" src="__ADMIN__/frame/select2/select2.js"></script>
+<script type="text/javascript" src="__ADMIN__/frame/select2/select2_locale_zh-CN.js"></script>
+<!--处理select下拉，搜索功能 结束-->
+<script type="text/javascript" src="__ADMIN__/frame/plupload/plupload.full.min.js"></script>
+
+<form action="{:url()}" method="post" enctype="multipart/form-data">
+<table class="table table-bordered table-hover definewidth m10">
+    <input type="hidden" name='id' value="{:input('param.id')}">
+    <tr>
+        <td width="10%" class="tableleft">文件名称</td>
+        <td>{$data.filename}</td>
+    </tr>
+	<tr>
+        <td width="10%" class="tableleft">文件路径</td>
+        <td>{$data.filepath}</td>
+    </tr>
+    <tr>
+        <td width="10%" class="tableleft">文件大小</td>
+        <td>
+            <?php
+                $num = $data['filesize']/1024/1024;
+                echo round($num,2) ."M";
+            ?>
+        </td>
+    </tr>
+    <tr>
+        <td width="10%" class="tableleft">文件类型</td>
+        <td>{$data.fileext}</td>
+    </tr>
+	
+</table>
+{/block}
+{block name="js"}
+
+
+{/block}

@@ -31,10 +31,17 @@
             <td>{$v.id}</td>
             <td>{$v.filename}</td>
             <td>{$v.filepath}</td>
-            <td>{$v.filesize}</td>
+            <td>
+            <?php
+                $num = $v['filesize']/1024/1024;
+                echo round($num,2) ."M";
+            ?>
+            </td>
             <td>{$v.fileext}</td>
             <td>{$v.addtime|date="Y-m-d H:i",###}</td>
             <td>
+            <a href="{:url('Files/show',['id'=>$v['id']])}">查看</a>
+            <a href="{:url('Files/sccode',['id'=>$v['id']])}">生成二维码</a>
             <a href="javascript:void(0);" onclick="del(this,{$v['id']})">删除</a>
             </td>
         </tr>

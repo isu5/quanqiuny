@@ -9,27 +9,12 @@
 <script type="text/javascript" src="__ADMIN__/frame/plupload/plupload.full.min.js"></script>
 
 <table class="table table-bordered table-hover definewidth m10">
-     <tr>
-        <td width="10%" class="tableleft">文件名称</td>
-        <td>{$data.filename}</td>
-    </tr>
-	<tr>
-        <td width="10%" class="tableleft">文件路径</td>
-        <td>{$data.filepath}</td>
-    </tr>
+    
     <tr>
-        <td width="10%" class="tableleft">文件大小</td>
-        <td>
-            <?php
-                $num = $data['filesize']/1024/1024;
-                echo round($num,2) ."M";
-            ?>
-        </td>
+        <td width="10%" class="tableleft">二维码图片</td>
+        <td><img src="/uploads/QRcode/user/{$id}.png" width="200" alt=""></td>
     </tr>
-    <tr>
-        <td width="10%" class="tableleft">文件类型</td>
-        <td>{$data.fileext}</td>
-    </tr>
+	
 	
 </table>
 {/block}

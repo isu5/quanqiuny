@@ -136,8 +136,8 @@ function qrcode($data='',$filename='',$picPath=false,$logo=false,$size='10',$lev
  function scQRcode($id){
 	import('Phpqrcode.phpqrcode',EXTEND_PATH);//引入工具包
 	
-	//$value = 'http://geidco.95598bj.net/index/files/show/id/'.$id; //二维码内容
-	$value = 'https://xcx.isu5.com/index/Files/show/id/'.$id; //二维码内容
+	$value = 'http://geidco.95598bj.net/index/files/show/id/'.$id; //二维码内容
+	//$value = 'https://xcx.isu5.com/index/Files/show/id/'.$id; //二维码内容
 	$errorCorrectionLevel = 'Q';//容错级别
 	$matrixPointSize = 10;//生成图片大小
 	

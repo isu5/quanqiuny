@@ -18,7 +18,6 @@ class Files extends Model
     	}else{
     		return ['valid'=>1,'msg'=>'添加成功'];
     	}
-
     }
     //删除
     public function del(){

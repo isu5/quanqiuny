@@ -35,6 +35,8 @@ class Files extends Common{
     //生成二维码
     public function sccode($id){
         scQRcode($id);
+        $this->assign('id',$id);
+        return view();
     }
 
     /**

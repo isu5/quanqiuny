@@ -122,4 +122,20 @@ class Article extends Base
         return $this->belongsTo('category');
     }
 	
+	//统计查询结果
+	public function getcount($pagesize=20){
+		$data['list'] = $this->alias('a')
+		->field('a.*,c.catename,d.catename as topcate')
+		->join('__CATEGORY__ c ', 'c.id = a.cid')
+		->join('__CATEGORY__ d ', 'd.id = c.pid')
+		->where($where)
+		->order('a.id desc')
+		->paginate($pagesize);
+		// 获取分页显示
+		$data['page'] = $data['list']->render();
+		//print_r($data);
+		//dump($this->getLastSql());
+		return $data;
+	}
+	
 }

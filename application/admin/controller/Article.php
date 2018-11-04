@@ -121,4 +121,33 @@ class Article extends Common
 	}
 
 
+    //期刊统计
+    public function getclick(){
+		// 开始月份
+        $startMonth = input('post.beginTime')?str_replace('-' , '' ,input('post.beginTime')):date('Y' , time()).'01';
+        // 现在月份
+        $endMonth = input('post.endMonth')?input('post.endMonth'):date('Ym' , time());
+		$times = [];
+		for($i = intval($startMonth) ; $i <= intval($endMonth) ; $i++ ){
+			$month1 = strtotime($i.'01');  //  月初
+            $month2 = strtotime($i.date('t', strtotime($i.'01')).'235959'); // 月末
+			$map[$i]['time'] = $month1;
+            $times[] = date('Y-m' , $month1);
+			$map[$i]['click'] = db('Article')->where('addtime','between',"$month1,$month2")->sum('click');
+			
+			$clicks[] = $map[$i]['click'];
+		}
+		rsort($map);
+		$data = $this->art->getcount();
+       halt($times);
+        $this->assign([
+            'data'	=>$data['list'],
+            'page'	=>$data['page'],
+			'times'	=>json_encode($times),
+			'clicks' => json_encode($clicks)
+            ]);
+
+        return view();
+    }
+
 }

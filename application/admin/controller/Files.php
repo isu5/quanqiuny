@@ -85,10 +85,10 @@ class Files extends Common{
 
         if($file){
             // 移动到框架应用根目录/public/uploads/ 目录下
-            $date = date('Ymd',time());
-            $info = $file->move(ROOT_PATH . 'public' . DS . 'uploads'.DS. $date .DS,'');
+            //$date = date('Ymd',time());
+            $info = $file->move(ROOT_PATH . 'public' . DS . 'uploads'.DS);
             
-            $path = DS.'uploads'.DS. $date.DS. $info->getSaveName();
+            $path = DS.'uploads'.DS. $info->getSaveName();
             $name = $info->getSaveName();
             $filesize = $info->getSize();
             $fileext = $info->getExtension();

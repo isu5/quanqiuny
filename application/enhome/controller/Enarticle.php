@@ -91,5 +91,12 @@ class Enarticle extends Controller{
       return view();
 
     }
+    //增加点击量
+    public function sethits(){
+        $id = input('param.id');
+        if(!$id){return;}
+        db('Enarticle')->where('id',$id)->setInc('click');
+    }
+
 
 }

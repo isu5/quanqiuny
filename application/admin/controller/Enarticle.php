@@ -119,7 +119,11 @@ class Enarticle extends Common
 			return json($msg);
 		}
 	}
+<<<<<<< HEAD
 	//期刊统计
+=======
+    //期刊统计
+>>>>>>> 277fd53471e3f6a368dbe8c912cebd46d797907a
     public function getclick(){
         // 开始月份
         $startMonth = input('post.beginTime')?str_replace('-' , '' ,input('post.beginTime')):date('Y' , time()).'01';
@@ -135,8 +139,11 @@ class Enarticle extends Common
             
             $clicks[] = $map[$i]['click'];
         }
+<<<<<<< HEAD
 		//总阅读量
 		$pro = db('Enarticle')->field('click')->sum('click');
+=======
+>>>>>>> 277fd53471e3f6a368dbe8c912cebd46d797907a
         
         $data = $this->art->getcount();
        
@@ -144,8 +151,12 @@ class Enarticle extends Common
             'data'  =>$data['list'],
             'page'  =>$data['page'],
             'times' =>json_encode($times),
+<<<<<<< HEAD
             'clicks' => json_encode($clicks),
 			'pro'	 => $pro
+=======
+            'clicks' => json_encode($clicks)
+>>>>>>> 277fd53471e3f6a368dbe8c912cebd46d797907a
             ]);
 
         return view();

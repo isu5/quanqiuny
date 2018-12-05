@@ -91,11 +91,19 @@ class Enarticle extends Controller{
       return view();
 
     }
+<<<<<<< HEAD
 	//增加点击量
+=======
+    //增加点击量
+>>>>>>> 277fd53471e3f6a368dbe8c912cebd46d797907a
     public function sethits(){
         $id = input('param.id');
         if(!$id){return;}
         db('Enarticle')->where('id',$id)->setInc('click');
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 277fd53471e3f6a368dbe8c912cebd46d797907a
 
 }

@@ -1,5 +1,6 @@
 {extend name="public:base"}
 {block name="main"}
+<<<<<<< HEAD
 <form class="form-inline definewidth m20" action="" method="get">    
     文章标题：
     <input type="text" name="title" id="title" class="abc input-default" placeholder="" value="{:input('get.title')}">&nbsp;&nbsp;  
@@ -18,6 +19,16 @@
 
 <table class="table table-bordered table-hover definewidth m10">
 	
+=======
+<form class="form-inline definewidth m20" action="index.html" method="get">    
+    文章标题：
+    <input type="text" name="title" id="title" class="abc input-default" placeholder="" value="{:input('get.title')}">&nbsp;&nbsp;  
+    <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp;
+    <button type="button" class="btn btn-success" id="addnew">新增期刊文章</button>
+</form>
+<div id="main" style="height:400px;"></div>
+<table class="table table-bordered table-hover definewidth m10">
+>>>>>>> 277fd53471e3f6a368dbe8c912cebd46d797907a
     <thead>
     <tr>
         <th width="5%">id</th>
@@ -64,7 +75,11 @@
 		tooltip: {},
 		legend: {
 			bottom: 0,
+<<<<<<< HEAD
 			data:['该期英文期刊阅读总点击量']
+=======
+			data:['月阅读总点击量']
+>>>>>>> 277fd53471e3f6a368dbe8c912cebd46d797907a
 		},
 		xAxis: {
 			type: 'category',
@@ -75,7 +90,11 @@
 		},
 		yAxis: {},
 		series: [{
+<<<<<<< HEAD
 			name: '该期英文期刊阅读总点击量',
+=======
+			name: '月阅读总点击量',
+>>>>>>> 277fd53471e3f6a368dbe8c912cebd46d797907a
 			type: 'bar',
 			data: {$clicks}
 		}],

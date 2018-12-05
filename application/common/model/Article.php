@@ -121,6 +121,7 @@ class Article extends Base
     {
         return $this->belongsTo('category');
     }
+<<<<<<< HEAD
 	//统计查询结果
 	public function getcount($pagesize=20){
 		$where = [];
@@ -128,6 +129,11 @@ class Article extends Base
 		if ($title) {
 			$where['bigtitle|title'] = array('like',"%$title%");
 		}
+=======
+	
+	//统计查询结果
+	public function getcount($pagesize=20){
+>>>>>>> 277fd53471e3f6a368dbe8c912cebd46d797907a
 		$data['list'] = $this->alias('a')
 		->field('a.*,c.catename,d.catename as topcate')
 		->join('__CATEGORY__ c ', 'c.id = a.cid')
@@ -141,4 +147,8 @@ class Article extends Base
 		//dump($this->getLastSql());
 		return $data;
 	}
+<<<<<<< HEAD
+=======
+	
+>>>>>>> 277fd53471e3f6a368dbe8c912cebd46d797907a
 }

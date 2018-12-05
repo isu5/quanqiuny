@@ -49,25 +49,9 @@ class Feeds extends Common{
 		$info=array(
 		'序号', '订阅单位', '订阅联系人', '称呼(1为先生,0为女士)', '电话', '传真', '中文订阅数量', '英文订阅数量', '邮箱', '邮编', '通信地址',
 		'是否需要增值税专用发票(1为是，0为否)', '开票单位', '纳税人识别号', '注册地址', '注册电话', '开户银行', '银行账户', '订阅时间');
-		$arr = [];
-		foreach($data as $k=>$v){
-			$arr[$k]['id'] = $v['id'];
-			$arr[$k]['fcompany'] = $v['fcompany'];
-			$arr[$k]['fusername'] = $v['fusername'];
-			$arr[$k]['fsex'] = ($v['fsex']==1)?'先生':'女士';
-			$arr[$k]['fax'] = $v['fax'];
-			$arr[$k]['fcnnum'] = $v['fcnnum'];
-			$arr[$k]['fennum'] = $v['fennum'];
-			$arr[$k]['femail'] = $v['femail'];
-			$arr[$k]['fcode'] = $v['fcode'];
-			$arr[$k]['faddress'] = $v['faddress'];
-			$arr[$k]['faddress'] = $v['faddress'];
-			$arr[$k]['is_invoice'] = ($v['faddress']==1)?'是':'否';
-			$arr[$k]['company'] = $v['company'];
-			$arr[$k]['addtime'] = date('Y-m-d H:i:s',$v['addtime']);
-		}
-		//dump($arr);die;
-		exportExcel($arr , "《全球能源互联网》期刊订阅开发票信息 " , $info);
+		
+		//dump($data);die;
+		exportExcel($data , "《全球能源互联网》期刊订阅开发票信息 " , $info);
 	
 	}
 	
@@ -80,24 +64,7 @@ class Feeds extends Common{
 		'序号', '订阅单位', '订阅联系人', '称呼(1为先生,0为女士)', '电话', '传真', '中文订阅数量', '英文订阅数量', '邮箱', '邮编', '通信地址',
 		'是否需要增值税专用发票(1为是，0为否)', '开票单位', '订阅时间');
 		//dump($data);die;
-		$arr = [];
-		foreach($data as $k=>$v){
-			$arr[$k]['id'] = $v['id'];
-			$arr[$k]['fcompany'] = $v['fcompany'];
-			$arr[$k]['fusername'] = $v['fusername'];
-			$arr[$k]['fsex'] = ($v['fsex']==1)?'先生':'女士';
-			$arr[$k]['fax'] = $v['fax'];
-			$arr[$k]['fcnnum'] = $v['fcnnum'];
-			$arr[$k]['fennum'] = $v['fennum'];
-			$arr[$k]['femail'] = $v['femail'];
-			$arr[$k]['fcode'] = $v['fcode'];
-			$arr[$k]['faddress'] = $v['faddress'];
-			$arr[$k]['faddress'] = $v['faddress'];
-			$arr[$k]['is_invoice'] = ($v['faddress']==1)?'是':'否';
-			$arr[$k]['company'] = $v['company'];
-			$arr[$k]['addtime'] = date('Y-m-d H:i:s',$v['addtime']);
-		}
-		exportExcel($arr, "《全球能源互联网》期刊订阅不开发票信息 " , $info);
+		exportExcel($data, "《全球能源互联网》期刊订阅不开发票信息 " , $info);
 		
 	}
 	public function dataexcle(){
@@ -106,28 +73,11 @@ class Feeds extends Common{
 		$info=array(
 		'序号', '订阅单位', '订阅联系人', '称呼(1为先生,0为女士)', '电话', '传真', '中文订阅数量', '英文订阅数量', '邮箱', '邮编', '通信地址',
 		'是否需要增值税专用发票(1为是，0为否)', '开票单位', '纳税人识别号', '注册地址', '注册电话', '开户银行', '银行账户', '订阅时间');
-		$arr = [];
-		foreach($data as $k=>$v){
-			$arr[$k]['id'] = $v['id'];
-			$arr[$k]['fcompany'] = $v['fcompany'];
-			$arr[$k]['fusername'] = $v['fusername'];
-			$arr[$k]['fsex'] = ($v['fsex']==1)?'先生':'女士';
-			$arr[$k]['fax'] = $v['fax'];
-			$arr[$k]['fcnnum'] = $v['fcnnum'];
-			$arr[$k]['fennum'] = $v['fennum'];
-			$arr[$k]['femail'] = $v['femail'];
-			$arr[$k]['fcode'] = $v['fcode'];
-			$arr[$k]['faddress'] = $v['faddress'];
-			$arr[$k]['faddress'] = $v['faddress'];
-			$arr[$k]['is_invoice'] = ($v['faddress']==1)?'是':'否';
-			$arr[$k]['company'] = $v['company'];
-			$arr[$k]['addtime'] = date('Y-m-d H:i:s',$v['addtime']);
-		}
 		if(empty($data)){
 			$this->error('没有数据');
 		}else{
 			//dump($data);die;
-			exportExcel($arr , "《全球能源互联网》期刊订阅开发票信息 " , $info);
+			exportExcel($data , "《全球能源互联网》期刊订阅开发票信息 " , $info);
 			
 		}	
 		

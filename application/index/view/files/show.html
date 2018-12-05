@@ -8,7 +8,7 @@
 	<meta name="format-detection" content="telephone=no"/>
 	<link href="__HOME__/css/mzui.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="__HOME__/css/app.css">
-	<script type="text/javascript" src="//at.alicdn.com/t/font_857220_kpjgxcxbro.js"></script>
+	<script type="text/javascript" src="//at.alicdn.com/t/font_857220_um8fwf803k.js"></script>
 	
 <title>文件</title>	
 </head>
@@ -67,6 +67,27 @@
 						</svg>
 					</div>
 					{/case}
+					{case value="mp3|wma|flac|aac|mmf|amr|m4a|m4r|ogg|mp2|wav|wv"}
+					<div class="avatar ">
+						<svg class="icon" aria-hidden="true">
+							  <use xlink:href="#icon-wenjianyinpin"></use>
+						</svg>
+					</div>
+					{/case}
+					{case value="avi|mkv|flv|mpeg|swf|mov|wma|rmvb|rm|flash|mp4|3gp"}
+					<div class="avatar ">
+						<svg class="icon" aria-hidden="true">
+							  <use xlink:href="#icon-shipin-m"></use>
+						</svg>
+					</div>
+					{/case}
+					{default /}
+					
+					<div class="avatar ">
+						<svg class="icon" aria-hidden="true">
+							  <use xlink:href="#icon-qita"></use>
+						</svg>
+					</div>
 					{/switch}
 				  
 				</div>
@@ -81,10 +102,6 @@
 		</div>
 		
 	</div>
- 	
-
-
-
 
  <!-- MZUI 的 JavaScript 插件依赖 jQuery，请使用 jQuery 最新版本 -->
 	<script src="__HOME__/js/jquery.js"></script>
@@ -93,13 +110,31 @@
 	<script src="__HOME__/js/layer/layer.js"></script>
 	<script src="__HOME__/js/public.js"></script>
     <script>
-	$('#is_invoice').click(function(){
-		$('#invoice').show();
-	})
-	$('#f_invoice').click(function(){
-		//alert(1)
-		$('#invoice').hide();
-	})
-</script>
+		var is_weixin = (function(){return navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1})();
+		var u = navigator.userAgent;
+		var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+		var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+		
+		window.onload = function() {
+			if (is_weixin) {
+				if(isAndroid){
+					$('.multi-lines').attr('href' , 'javascript:;');
+					$('.multi-lines').click(function(){
+						alert('请点击右上角的 ... 然后选择 用浏览器打开');
+					});	
+				}else if(isiOS){
+					$('.multi-lines').attr('href' , 'javascript:;');
+					$('.multi-lines').click(function(){
+						alert(' 请使用除Safi外的浏览器打开');
+					});	
+				}
+			}else if(isiOS){
+				$('.multi-lines').attr('href' , 'javascript:;');
+				$('.multi-lines').click(function(){
+					alert(' 请使用除Safi外的浏览器打开');
+				});	
+			}
+		}
+	</script>
 </body>
 </html>

@@ -3,6 +3,7 @@
  */
 
 $(function(){
+	var bool = false;  //加个锁  防止重复提交
     //点击事件
     $('.ajax').click(function(){
         var url = $(this).attr('data_url');
@@ -17,7 +18,10 @@ $(function(){
         });
     });
     //表单提交
-    $('.sub').click(function(){
+	if(!bool){
+		bool = true;//解锁
+		$('.sub').click(function(){
+		
         $.ajax({
             url:$('.form').attr('action'),
             type:'post',
@@ -25,6 +29,7 @@ $(function(){
             dataType:'json',
             success:function(data){
                 if(data.code == 1){
+					bool = true;  //解锁
                     layer.msg(data.msg , {time: 2000} , function(){
                         window.location.href = data.url;
                     });
@@ -34,4 +39,8 @@ $(function(){
             }
         });
     })
+		
+		
+	}
+    
 })

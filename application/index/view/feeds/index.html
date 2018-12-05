@@ -53,7 +53,7 @@
 					<label><span></span>中文订阅数量</label>
 					 <div class="cell-1"></div>
 					<div class="cell-6">
-					<input type="number" min="1" name="fcnnum"   class="input" placeholder="请输入中文订阅数量">
+					<input type="number" min="0" name="fcnnum"   class="input" placeholder="请输入中文订阅数量">
 					</div>
 					<div class="cell-5"></div>
 				</div>
@@ -61,7 +61,7 @@
 					<label><span></span>英文订阅数量</label>
 					 <div class="cell-1"></div>
 					<div class="cell-6">
-					<input type="number"  min="1" name="fennum" class="input" placeholder="请输入英文订阅数量">
+					<input type="number"  min="0" name="fennum" class="input" placeholder="请输入英文订阅数量">
 					</div>
 					<div class="cell-5"></div>
 				</div>					
@@ -92,7 +92,7 @@
 					<label><span></span>电话</label>
 					 <div class="cell-1"></div>
 					<div class="cell-6">
-					<input type="number" min="1" name="fphone" class="input" placeholder="例：01066666666">
+					<input type="number" min="0" name="fphone" class="input" placeholder="例：01066666666">
 					<!-- 
 					<input type="number" min="0" name="fphone" class="input" placeholder="请输入联系电话">
 					-->
@@ -103,7 +103,7 @@
 					<label><span></span>传真</label>
 					 <div class="cell-1"></div>
 					<div class="cell-6">
-					<input type="number" min="1" name="fax" class="input" placeholder="例：01066666666">
+					<input type="number" min="0" name="fax" class="input" placeholder="例：01066666666">
 					<!-- 
 					<input type="number" min="0" name="fax" class="input" placeholder="请输入传真">
 					-->
@@ -188,7 +188,7 @@
 						<label><span></span>注册电话</label>
 						<div class="cell-1"></div>
 						<div class="cell-10">
-						<input type="number" min="1" name="regphone" class="input" required="required" placeholder="请输入注册电话">
+						<input type="number" min="0" name="regphone" class="input" required="required" placeholder="例：01066666666 (注:按示例格式填写)">
 						</div>
 						<div class="cell-1"></div>
 					</div>
@@ -204,7 +204,7 @@
 						<label><span></span>银行账户</label>
 						<div class="cell-1"></div>
 						<div class="cell-10">
-						<input type="number" min="1" name="bankcard" class="input" placeholder="请输入银行账户" required="required">
+						<input type="text" min="0" name="bankcard" class="input" placeholder="请输入银行账户" required="required">
 						</div>
 						<div class="cell-1"></div>
 					</div>
@@ -228,7 +228,35 @@
     <!-- 引入 MZUI 的 JS 文件 -->
     <script src="__HOME__/js/mzui.min.js"></script>
 	<script src="__HOME__/js/layer/layer.js"></script>
-	<script src="__HOME__/js/public.js"></script>
+	<!--<script src="__HOME__/js/public.js"></script>-->
+	<script>
+		$(function(){
+		
+			$('.sub').click(function(){
+				layer.confirm('确定订阅吗?',function(){
+					
+					$.ajax({
+						url:$('.form').attr('action'),
+						type:'post',
+						data:$('.form').serializeArray(),
+						dataType:'json',
+						success:function(data){
+							if(data.code == 1){
+								layer.msg(data.msg , {icon:6,time: 0,shade: 0.6,area: ['85%', '30%'], btn: ['确定'], yes:function(index){
+									layer.close(index);
+									window.location.href = "{:url('Feeds/index')}";
+								}
+								});
+							}else{
+								layer.msg(data.msg );
+							}
+						}
+					});
+				})
+			})
+		})
+		
+	</script>
     <script>
 	$('#is_invoice').click(function(){
 		$('#invoice').show();

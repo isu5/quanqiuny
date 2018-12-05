@@ -22,8 +22,8 @@ class Feeds extends Validate{
 	protected $message = [
 		'fcompany.require'=>'订阅单位不能为空',
 		'fusername.require'=>'订阅联系人不能为空',
-		'fphone.require'=>'联系电话不能为空',
-		'fax.require'=>'传真不能为空',
+		'fphone.require'=>'联系电话不能为空(按照示例格式填写)',
+		'fax.require'=>'传真不能为空(按照示例格式填写)',
 		'fcnnum.require'=>'中文订阅数量不能为空',
 		'fcnnum.number'=>'中文订阅数量必须是数字',
 		'fennum.require'=>'英文订阅数量不能为空',

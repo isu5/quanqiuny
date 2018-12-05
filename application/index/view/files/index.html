@@ -8,7 +8,7 @@
 	<meta name="format-detection" content="telephone=no"/>
 	<link href="__HOME__/css/mzui.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="__HOME__/css/app.css">
-	<script type="text/javascript" src="//at.alicdn.com/t/font_857220_kpjgxcxbro.js"></script>
+	<script type="text/javascript" src="//at.alicdn.com/t/font_857220_um8fwf803k.js"></script>
 	
 </head>
 <body>
@@ -67,13 +67,36 @@
 				</svg>
 			</div>
 			{/case}
+			{case value="mp3|wma|flac|aac|mmf|amr|m4a|m4r|ogg|mp2|wav|wv"}
+			<div class="avatar ">
+				<svg class="icon" aria-hidden="true">
+					  <use xlink:href="#icon-wenjianyinpin"></use>
+				</svg>
+			</div>
+			{/case}
+			{case value="avi|mkv|flv|mpeg|swf|mov|wma|rmvb|rm|flash|mp4|3gp"}
+			<div class="avatar ">
+				<svg class="icon" aria-hidden="true">
+					  <use xlink:href="#icon-shipin-m"></use>
+				</svg>
+			</div>
+			{/case}
+			{default /}
+			
+			<div class="avatar ">
+				<svg class="icon" aria-hidden="true">
+					  <use xlink:href="#icon-qita"></use>
+				</svg>
+			</div>
 			{/switch}
 				<div class="title">{$v.filename}</div>
 				<a class="btn text-primary" href="{:url('files/show',['id'=>$v['id']])}">查看&nbsp;<i class="icon-chevron-right"></i></a>
 			</div>
 		{/volist}
 	</div>
-	
+	<div class="inline pull-right page">
+	{$page}
+	</div>
 </div>
 </body>
 </html>

@@ -18,20 +18,18 @@
         <td width="10%" class="tableleft">文件上传</td>
         <td>
 		<div class="demo">
-			<a class="pluploadbtn" id="btn">上传文件</a> 最大5000KB，支持doc，docx，xlx，xlxs，ppt，pptx，txt，zip，rar，jpg，jpeg，gif，png格式。	
+			<a class="pluploadbtn" id="btn">上传文件</a> 最大200M，支持音频，视频，文档，图片，压缩包，其他。	
 			<ul id="ul_pics" class="ul_pics clearfix"></ul>
-			<input type='hidden' name="filepath" id="multimage" />
+			<input type='hidden' name="filepath" id="multimage" datatype="*" nullmsg="请上传文件" errormsg="文件上传有误" />
 			<div class="clear"></div>
 		</div>	
 		</td>
     </tr>
-   
-   
     <tr>
         <td class="tableleft"></td>
         <td>
-            <button type="submit" class="btn btn-primary" type="button">保存</button>&nbsp;&nbsp;
-            <button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button>
+            <button type="submit" class="btn btn-primary" type="button">提交上传</button>&nbsp;&nbsp;
+            <button type="button" class="btn btn-success" name="backid" id="backid">返回文件列表</button>
         </td>
     </tr>
 </table>
@@ -64,10 +62,8 @@
           flash_swf_url: '__ADMIN__/frame/plupload/Moxie.swf', 
           silverlight_xap_url: '__ADMIN__/frame/plupload/Moxie.xap',
           filters: {
-              max_file_size: '50000kb', 
-              mime_types: [
-                  {title: "files", extensions: "doc,docx,xlx,xlxs,ppt,pptx,txt,zip,rar,jpg,jpeg,png,gif"}
-              ]
+              max_file_size: '200M', 
+              
           },
           multi_selection: false, 
           init: {
@@ -78,6 +74,8 @@
                   } else {
                       var li = '';
                       plupload.each(files, function(file) { 
+					  console.log(file);
+					  alert(file['type']);
                           li += "<li class='li_image' id='" + file['id'] + "'><div class='progress'><span class='bar'></span><span class='percent'>0%</span></div></li>";
                       });
                       $("#ul_pics").append(li);
@@ -91,7 +89,7 @@
               },
               FileUploaded: function(up, file, info) { 
                  var data = eval("(" + info.response + ")");
-				 console.log(data);
+				 //console.log(data);
                   if (data.fileext=='jpeg' || data.fileext=='jpg' || data.fileext=='png' ||  data.fileext=='gif') {
                      $("#" + file.id).html("<div class='img'><img  src='" + data.path + "'/><span class='span_del'></span></div><input type='hidden' name='filesize' value='"+ data.filesize+"' /><input type='hidden' name='fileext' value='"+ data.fileext+"'/>");
                    }else{

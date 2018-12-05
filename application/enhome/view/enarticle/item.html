@@ -145,6 +145,18 @@
 <script src="__HOME__/js/colorbox.js"></script>
 <script type="text/javascript" src="__HOME__/js/line.js"></script>
 <script type="text/javascript"  src="__HOME__/js/MathJax-master/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+	var ajax;
+	if(window.XMLHttpRequest){ 
+		ajax = new XMLHttpRequest();
+	}else{ 
+		ajax = new ActiveXObject('Microsoft.XMLHTTP');
+	}
+	
+	ajax.open('GET',"{:url('Enarticle/sethits',['id'=>input('param.id')])}",true);
+	
+	ajax.send();
+</script>
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 		extensions: ["tex2jax.js"],

@@ -54,8 +54,8 @@
 					<tr>
 						<td class="year">年&nbsp;&nbsp;卷：</td>
 						<td  class="syear">
-						<select name="year" id="" class="form-control" >
-						
+						<select name="year" id="yearkan" class="form-control" >
+						<option>请选择年卷</option>
 						{volist name="cateTop" id="ct"}
 							<option value="{$ct['id']}" {if condition="input('get.year') eq $ct['id']"} selected="selected" {/if}>{$ct['catename']}</option>
 						{/volist}
@@ -65,8 +65,7 @@
 					<tr>
 						<td class="year">期&nbsp;&nbsp;号：</td>
 						<td class="syear">
-							<select name="month" id="" class="form-control" >
-							
+							<select name="month" id="monthkan" class="form-control" >
 							{volist name="cateson" id="cs"}
 								<option value="{$cs['id']}" {if condition="input('get.month') eq $cs['id']"} selected="selected" {/if}>{$cs['catename']}</option>
 							{/volist}
@@ -134,7 +133,57 @@
 			$('#articlelist').show();
 			
 		}
+		var  province= '{$cate}';
+		var  catesons= '{$catesons}';
+		console.log(province);
+		console.log(catesons);
+		var oCatesons = document.getElementById('monthkan');
+		/*-- $('#yearkan').change(function(){
+		//alert(catesons)
+			var oVal = this.value;
+			var index = province.indexOf(oVal);
+			//alert(oVal)
+			var newArr = catesons[index];
+			//alert(newArr);
+			//清空子栏目里边的值
+			while(oCatesons.firstChild){
+				oCatesons.removeChild(oCatesons.firstChild);
+			}
+			//根据年份的不同渲染不同的期数数组
+			for(var i = 0;i<newArr.length;i++){
+				var opt = document.createElement('option');
+				opt.setAttribute('value',newArr[i]);
+				opt.innerText = newArr[i];
+				oCatesons.appendChild(opt);
+			}
+				
+
+		 })*/
 		
+		$("#yearkan").change(function () {
+			var yearkan = this.value;
+			console.log(yearkan);
+			$.ajax({
+				url:"{:url('Article/searchlist')}",
+				dataType: "JSON",
+				data: {'pid': yearkan},
+				type: "GET",
+				success:function (data) {
+					var gradeNum= data.length;
+					$("#monthkan option").remove();
+					var option = "<option value=''>请选择期号</option>";
+					if(gradeNum>0){
+						$("#monthkan").html(option);
+						for(var i = 0;i<gradeNum;i++){
+							option += "<option value='"+data[i].id+"'  >"+data[i].catename+"</option>";
+						}
+					}
+					$("#monthkan").html(option);
+				}
+				
+			})
+			
+		})
 		
 	})
 </script>

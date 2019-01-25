@@ -76,11 +76,9 @@ class Article extends Controller{
 		
 		$cateTop = db('category')->where('pid',0)->order('id desc')->select();
 		
-		foreach ($cateTop as $key => &$value) {
-
-			$cateson = db('category')->where('pid',$value['id'])->order('id desc')->select();
-
-		}
+		
+		$cateson = db('category')->where('pid',input('param.year'))->order('id desc')->select();
+			
 		/*  echo "<pre>";
 		print_r($cateTop);
 		print_r($cateson);  */
@@ -91,24 +89,27 @@ class Article extends Controller{
 		  'page'=>$data['page'],
 		  //'count'=>$data['count'],
 		  'cateTop' => $cateTop,
-		  'cateson' => $cateson
+		  'cateson' => $cateson,
+		  
 		  ]);
 		return view();
 
     }
-<<<<<<< HEAD
+
+	public function searchlist(){
+		$pid = input('param.pid');
+		$cate = db('category')->where('pid',$pid)->order('id desc')->select();
+		return $cate;
+		
+	}
+
 	//增加点击量
-=======
-    //增加点击量
->>>>>>> 277fd53471e3f6a368dbe8c912cebd46d797907a
+
     public function sethits(){
         $id = input('param.id');
         if(!$id){return;}
         db('article')->where('id',$id)->setInc('click');
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> 277fd53471e3f6a368dbe8c912cebd46d797907a
-
+	
 }
